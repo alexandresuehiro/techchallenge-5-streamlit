@@ -303,14 +303,16 @@ if st.button("Predict"):
 		st.code(data['score'])
 
     # Optionally, display successful and unsuccessful predictions
-		st.subheader("Successful Predictions")
-		st.dataframe(results[model_type]['successful_df'])
+		#st.subheader("Successful Predictions")
+		#st.dataframe(results[model_type]['successful_df'])
 
-		st.subheader("Unsuccessful Predictions")
-		st.dataframe(results[model_type]['unsuccessful_df'])
+		#st.subheader("Unsuccessful Predictions")
+		#st.dataframe(results[model_type]['unsuccessful_df'])
   
 		col1, col2 = st.columns(2)
 		with col1:
+				st.subheader("Successful Predictions")
 				st.dataframe(results[model_type]['successful_df'])
 		with col2:
+				st.subheader("Unsuccessful Predictions")
 				st.dataframe(results[model_type]['unsuccessful_df'])
