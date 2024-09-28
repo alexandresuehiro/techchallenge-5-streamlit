@@ -296,9 +296,6 @@ if st.button("Predict"):
 		table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
 		st.write(table)
 
-    st.subheader("Successful Predictions")
-		st.dataframe(results[model_type]['successful_df'])
-
 		# Optionally, display successful and unsuccessful predictions
 		st.subheader("Successful Predictions")
 		st.dataframe(results[model_type]['successful_df'])
