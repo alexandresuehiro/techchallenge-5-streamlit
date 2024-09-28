@@ -281,31 +281,24 @@ model_type = st.sidebar.selectbox(
 
 # Run prediction
 if st.button("Predict"):
-  results = predict_success(df, features, target, model_type)
+	results = predict_success(df, features, target, model_type)
 
-  # Display results
-  if isinstance(results, str):  # Handle error message
-    st.error(results)
-  else:
-    table_rows = []
-    for model_name, data in results.items():
-      successful_count = len(data['successful_df'])
-      unsuccessful_count = len(data['unsuccessful_df'])
-      table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
-      #table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
+	# Display results
+	if isinstance(results, str):  # Handle error message
+		st.error(results)
+	else:
+		table_rows = []
+		for model_name, data in results.items():
+			successful_count = len(data['successful_df'])
+			unsuccessful_count = len(data['unsuccessful_df'])
+			table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
 
-  # Adicionando uma nova coluna com a string
-  data['resultado'] = f'{model_name}' + f'{data['score'].str.astype(str)}'
-  # Convertendo para HTML
-  html_table = df['resultado'].to_html(index=False)
+		table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
+		st.write(table)
 
-  # Imprimindo o código HTML
-  print(html_table)
-  st.write(table)
+    # Optionally, display successful and unsuccessful predictions
+		st.subheader("Successful Predictions")
+		st.dataframe(results[model_type]['successful_df'])
 
-		# Optionally, display successful and unsuccessful predictions
-  st.subheader("Successful Predictions")
-  st.dataframe(results[model_type]['successful_df'])
-
-  st.subheader("Unsuccessful Predictions")
-  st.dataframe(results[model_type]['unsuccessful_df'])
+		st.subheader("Unsuccessful Predictions")
+		st.dataframe(results[model_type]['unsuccessful_df'])
