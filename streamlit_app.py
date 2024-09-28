@@ -260,14 +260,14 @@ target = df.filter(regex=combined_pattern).columns.tolist()
 
 
 # Feature and target selection
-st.sidebar.header("Selecionar Features e Target")
+st.header("Selecionar Features e Target")
 all_columns = features
-features = st.sidebar.multiselect("Features", all_columns)
-target = st.sidebar.selectbox("Target", target)
+features = st.multiselect("Features", all_columns)
+target = st.selectbox("Target", target)
 
 # Model selection
-st.sidebar.header("Selecionar Modelo")
-model_type = st.sidebar.selectbox(
+st.header("Selecionar Modelo")
+model_type = st.selectbox(
 	"Model Type",
 	[
 		"Logistic Regression",
