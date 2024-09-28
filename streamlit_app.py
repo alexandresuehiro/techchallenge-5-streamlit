@@ -292,20 +292,20 @@ if st.button("Predict"):
       successful_count = len(data['successful_df'])
       unsuccessful_count = len(data['unsuccessful_df'])
       table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
-		#table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
+      #table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
 
-    # Adicionando uma nova coluna com a string
+  # Adicionando uma nova coluna com a string
   data['resultado'] = model_name + data['score'].astype(str)
   # Convertendo para HTML
   html_table = df['resultado'].to_html(index=False)
-    
+
   # Imprimindo o código HTML
   print(html_table)
-	st.write(table)
+  st.write(table)
 
 		# Optionally, display successful and unsuccessful predictions
-		st.subheader("Successful Predictions")
-		st.dataframe(results[model_type]['successful_df'])
+  st.subheader("Successful Predictions")
+  st.dataframe(results[model_type]['successful_df'])
 
-		st.subheader("Unsuccessful Predictions")
-		st.dataframe(results[model_type]['unsuccessful_df'])
+  st.subheader("Unsuccessful Predictions")
+  st.dataframe(results[model_type]['unsuccessful_df'])
