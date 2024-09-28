@@ -300,7 +300,7 @@ if st.button("Predict"):
 		st.code(model_name)
 
 		st.subheader("Score")
-		st.dataframe(data['score'])
+		st.code(data['score'])
 
     # Optionally, display successful and unsuccessful predictions
 		st.subheader("Successful Predictions")
