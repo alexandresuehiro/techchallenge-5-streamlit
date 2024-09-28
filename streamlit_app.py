@@ -281,14 +281,14 @@ model_type = st.sidebar.selectbox(
 
 # Run prediction
 if st.button("Predict"):
-	results = predict_success(df, features, target, model_type)
+  results = predict_success(df, features, target, model_type)
 
-	# Display results
-	if isinstance(results, str):  # Handle error message
-		st.error(results)
-	else:
-		table_rows = []
-		for model_name, data in results.items():
+  # Display results
+  if isinstance(results, str):  # Handle error message
+    st.error(results)
+  else:
+    table_rows = []
+    for model_name, data in results.items():
       successful_count = len(data['successful_df'])
       unsuccessful_count = len(data['unsuccessful_df'])
       table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
