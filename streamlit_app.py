@@ -296,8 +296,7 @@ if st.button("Predict"):
 		#table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
 #		st.write(table)
 
-		st.subheader("Model")
-		st.dataframe(model_type)
+		st.subheader("Model {model_name}")
 
 		st.subheader("Score")
 		st.dataframe(data['score'])
