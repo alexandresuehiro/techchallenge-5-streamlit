@@ -311,8 +311,8 @@ if st.button("Predição"):
   
 		col1, col2 = st.columns(2)
 		with col1:
-				st.subheader("Predição de Sucesso {successful_count}")
+				st.subheader(f"Predição de Sucesso {successful_count}")
 				st.dataframe(results[model_type]['successful_df'])
 		with col2:
-				st.subheader("Predição de Falha {unsuccessful_count}")
+				st.subheader(f"Predição de Falha {unsuccessful_count}")
 				st.dataframe(results[model_type]['unsuccessful_df'])
