@@ -295,7 +295,7 @@ if st.button("Predict"):
       #table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
 
   # Adicionando uma nova coluna com a string
-  data['resultado'] = model_name + data['score'].str.astype(str)
+  data['resultado'] = f'{model_name}' + f'{data['score'].str.astype(str)}'
   # Convertendo para HTML
   html_table = df['resultado'].to_html(index=False)
 
