@@ -297,7 +297,7 @@ if st.button("Predict"):
 
   
     # Adicionando uma nova coluna com a string
-    data['resultado'] = f'{model_name}' + data['score'].astype(str)
+    data['resultado'] = model_name + data['score'].astype(str)
     # Convertendo para HTML
     html_table = df['resultado'].to_html(index=False)
     
