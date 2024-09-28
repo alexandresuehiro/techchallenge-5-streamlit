@@ -308,3 +308,9 @@ if st.button("Predict"):
 
 		st.subheader("Unsuccessful Predictions")
 		st.dataframe(results[model_type]['unsuccessful_df'])
+  
+		col1, col2 = st.columns(2)
+		with col1:
+				st.dataframe(results[model_type]['successful_df'])
+		with col2:
+				st.dataframe(results[model_type]['unsuccessful_df'])
