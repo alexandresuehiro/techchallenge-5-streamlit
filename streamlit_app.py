@@ -224,7 +224,7 @@ def uploadfile_data_cleaning(df, filename):
 
 
 # Streamlit app
-st.title("Success Prediction App")
+st.title("Predição de Sucesso por Machine Learning")
 
 # File uploader
 #uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
@@ -260,13 +260,13 @@ target = df.filter(regex=combined_pattern).columns.tolist()
 
 
 # Feature and target selection
-st.sidebar.header("Select Features and Target")
+st.sidebar.header("Selecionar Features e Target")
 all_columns = features
 features = st.sidebar.multiselect("Features", all_columns)
 target = st.sidebar.selectbox("Target", target)
 
 # Model selection
-st.sidebar.header("Select Model")
+st.sidebar.header("Selecionar Modelo")
 model_type = st.sidebar.selectbox(
 	"Model Type",
 	[
@@ -280,7 +280,7 @@ model_type = st.sidebar.selectbox(
 )
 
 # Run prediction
-if st.button("Predict"):
+if st.button("Predição"):
 	results = predict_success(df, features, target, model_type)
 
 	# Display results
@@ -296,7 +296,7 @@ if st.button("Predict"):
 		#table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
 #		st.write(table)
 
-		st.subheader("Model type: ")
+		st.subheader("Tipo de Modelo: ")
 		st.code(model_name)
 
 		st.subheader("Score")
@@ -311,8 +311,8 @@ if st.button("Predict"):
   
 		col1, col2 = st.columns(2)
 		with col1:
-				st.subheader("Successful Predictions")
+				st.subheader("Predição de Sucesso")
 				st.dataframe(results[model_type]['successful_df'])
 		with col2:
-				st.subheader("Unsuccessful Predictions")
+				st.subheader("Predição de Falha")
 				st.dataframe(results[model_type]['unsuccessful_df'])
