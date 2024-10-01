@@ -155,22 +155,7 @@ class ModelosMachineLearning(TabInterface):
             return 'unknown'
 
 
-    def uploadfile_data_cleaning(df, filename):
-            #filename = "dataset.csv"
-
-        #    filetype = get_file_type(filename)
-            
-        #    dir = path.Path(__file__).abspath()
-        #    sys.append.path(dir.parent.parent)
-
-        # load model
-        #    filename = './data/dataset.csv'
-        #    result = chardet.detect(filename)
-        #    print(result)
-
-
-        ## Limpeza de Dados
-
+    def data_cleaning(df):
             for col in [col for col in df.columns if col.endswith('_INT')]:
               # Convert to float first, handling non-finite values with 'coerce'
               #df[col] = pd.to_numeric(df[col], errors='coerce')
@@ -227,20 +212,18 @@ class ModelosMachineLearning(TabInterface):
     # Streamlit app
     #st.title("Predição de Sucesso por Machine Learning")
 
-    # File uploader
-    #uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
     uploaded_file = "data/dataset.csv"
 
     df = pd.DataFrame()
     if uploaded_file is not None:
         #df = pd.read_csv(uploaded_file)
         df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
-        df = uploadfile_data_cleaning(df, uploaded_file)
+        df = data_cleaning(df)
 
     # Define your patterns
-    pattern1 = r'^IPP.*NUM'  # Pattern 1
-    pattern2 = r'^IEG.*_NUM'   # Pattern 2
-    pattern3 = r'^I.*_NUM'       # Pattern 3
+    pattern1 = r'^IPP.*NUM'   # Pattern 1
+    pattern2 = r'^IEG.*_NUM'  # Pattern 2
+    pattern3 = r'^I.*_NUM'    # Pattern 3
 
     # Combine patterns using the '|' operator
     combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
@@ -294,8 +277,6 @@ class ModelosMachineLearning(TabInterface):
                 unsuccessful_count = len(data['unsuccessful_df'])
                 table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
 
-            #table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
-    #		st.write(table)
 
             st.subheader("Tipo de Modelo: ")
             st.code(model_name)
@@ -303,13 +284,6 @@ class ModelosMachineLearning(TabInterface):
             st.subheader("Score")
             st.code(data['score'])
 
-        # Optionally, display successful and unsuccessful predictions
-            #st.subheader("Successful Predictions")
-            #st.dataframe(results[model_type]['successful_df'])
-
-            #st.subheader("Unsuccessful Predictions")
-            #st.dataframe(results[model_type]['unsuccessful_df'])
-      
             col1, col2 = st.columns(2)
             with col1:
                     st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
