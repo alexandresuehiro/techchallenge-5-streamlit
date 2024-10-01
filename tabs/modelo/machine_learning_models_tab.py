@@ -14,7 +14,19 @@ from tabs.tab import TabInterface
 class ModelosMachineLearningTab(TabInterface):
     df: pd.DataFrame
 
-    def data_cleaning(df):
+    def __init__(self, tab):
+        self.tab = tab
+
+        uploaded_file = "data/dataset.csv"
+
+        if uploaded_file is not None:
+            #df = pd.read_csv(uploaded_file)
+            df_load = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
+            df = self.data_cleaning(df_load)
+
+        self.render(df)
+
+    def data_cleaning(self, df):
             for col in [col for col in df.columns if col.endswith('_INT')]:
               # Convert to float first, handling non-finite values with 'coerce'
               #df[col] = pd.to_numeric(df[col], errors='coerce')
@@ -67,19 +79,7 @@ class ModelosMachineLearningTab(TabInterface):
 
             return df
 
-    def __init__(self, tab):
-        self.tab = tab
-
-        uploaded_file = "data/dataset.csv"
-
-        if uploaded_file is not None:
-            #df = pd.read_csv(uploaded_file)
-            df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
-            df = self.data_cleaning(df)
-
-        self.render()
-
-    def generate_patterns_list(df):
+    def generate_patterns_list(self, df):
         # Define your patterns
         pattern1 = r'^IPP.*NUM'   # Pattern 1
         pattern2 = r'^IEG.*_NUM'  # Pattern 2
@@ -104,7 +104,7 @@ class ModelosMachineLearningTab(TabInterface):
         return features, target
 
     @st.cache
-    def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
+    def predict_success(self, df, features, target, model_type, test_size=0.2, random_state=42):
           """
           Predizer sucesso usando modelos de classificação ou regressão.
 
@@ -249,7 +249,7 @@ class ModelosMachineLearningTab(TabInterface):
 
     # Streamlit app
     #st.title("Predição de Sucesso por Machine Learning")
-    def render(self):
+    def render(self, df):
 
         with self.tab:
             st.subheader(":blue[Sobre do modelo]", divider="blue")
