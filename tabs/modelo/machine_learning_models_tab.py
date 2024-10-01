@@ -250,18 +250,6 @@ class ModelosMachineLearningTab(TabInterface):
     # Streamlit app
     #st.title("Predição de Sucesso por Machine Learning")
     def render(self):
-
-        with self.tab:
-            st.subheader(":blue[Sobre do modelo]", divider="blue")
-
-            st.markdown(
-                """
-                Este conjunto analisa a base de dados a partir de um modelo de Machine Learning.
-            """
-            )
-
-            st.subheader(":blue[Performance do modelo]", divider="blue")
-
         features, targets = self.generate_patterns_list(self.df)
 
         # Feature and target selection
