@@ -1,7 +1,7 @@
 import streamlit as st
 from tabs.intro.passos_magicos import PassosMagicos
 from tabs.intro.educacao_brasil import EducacaoBrasil
-from tabs.intro.educacao_local import EducacaoLocal
+#from tabs.intro.educacao_local import EducacaoLocal
 from tabs.intro.decision_tree_classification_method import expDecisionTreeClassification
 from tabs.intro.random_forest_classification_method import expRandomForestClassification
 from tabs.intro.linear_regression_method import expLinearRegression
@@ -27,11 +27,12 @@ with st.container():
     """
     )
 
-    tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(
+    tab0, tab1, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs( #tab2, 
+    
         tabs=[
             "Passos Mágicos",
             "Educação no Brasil",
-            "Educação em Embu-Guaçú",
+#            "Educação em Embu-Guaçú",
             "Regressão Linear",
             "Regressão Logística",
             "Decision Tree - Classification",
@@ -43,7 +44,7 @@ with st.container():
 
     PassosMagicos(tab0)
     EducacaoBrasil(tab1)
-    EducacaoLocal(tab2)
+#    EducacaoLocal(tab2)
     expLinearRegression(tab3)
     expLogisticRegression(tab4)
     expDecisionTreeClassification(tab5)
