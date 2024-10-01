@@ -305,12 +305,10 @@ class ModelosMachineLearningTab(TabInterface):
                 st.subheader("Score")
                 st.code(data['score'])
 
-                with st.container():
-                  col1, col2 = st.columns(2)
-                  with col1:
-                      st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
-                      st.dataframe(results[model_type]['successful_df'])
-                  with col2:
-                      st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
-                      st.dataframe(results[model_type]['unsuccessful_df'])
-
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
+                    st.dataframe(results[model_type]['successful_df'])
+                with col2:
+                    st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
+                    st.dataframe(results[model_type]['unsuccessful_df'])
