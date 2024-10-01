@@ -14,83 +14,6 @@ from tabs.tab import TabInterface
 class ModelosMachineLearningTab(TabInterface):
     df: pd.DataFrame
 
-    def __init__(self, tab):
-        self.tab = tab
-        self.df = df
-        uploaded_file = "data/dataset.csv"
-
-        if uploaded_file is not None:
-            #df = pd.read_csv(uploaded_file)
-            df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
-            df = self.data_cleaning(df)
-        with self.tab:
-            st.subheader(":blue[Sobre do modelo]", divider="blue")
-
-            st.markdown(
-                """
-                Este conjunto analisa a base de dados a partir de um modelo de Machine Learning.
-            """
-            )
-
-            st.subheader(":blue[Performance do modelo]", divider="blue")
-
-        features, target = self.generate_patterns_list(self.df)
-
-        # Feature and target selection
-        st.header("Selecionar Features e Target")
-        all_columns = features
-        features = st.multiselect("Features", all_columns)
-        target = st.selectbox("Target", target)
-
-        # Model selection
-        st.header("Selecionar Modelo")
-        model_type = st.selectbox(
-            "Model Type",
-            [
-                "Logistic Regression",
-                "Decision Tree - Classification",
-                "Random Forest - Classification",
-                "Linear Regression",
-                "Decision Tree - Regression",
-                "Random Forest - Regression",
-            ],
-        )
-
-        # Streamlit app
-        #st.title("Predição de Sucesso por Machine Learning")
-        
-        # Run prediction
-        if st.button("Predição"):
-            results = self.predict_success(self.df, features, target, model_type)
-
-            # Display results
-            if isinstance(results, str):  # Handle error message
-                st.error(results)
-            else:
-                table_rows = []
-                for model_name, data in results.items():
-                    successful_count = len(data['successful_df'])
-                    unsuccessful_count = len(data['unsuccessful_df'])
-                    table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
-
-
-                st.subheader("Tipo de Modelo: ")
-                st.code(model_name)
-
-                st.subheader("Score")
-                st.code(data['score'])
-
-                col1, col2 = st.columns(2)
-                with col1:
-                        st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
-                        st.dataframe(results[model_type]['successful_df'])
-                with col2:
-                        st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
-                        st.dataframe(results[model_type]['unsuccessful_df'])
-
-        self.render()
-
-
     def data_cleaning(df):
             for col in [col for col in df.columns if col.endswith('_INT')]:
               # Convert to float first, handling non-finite values with 'coerce'
@@ -144,6 +67,17 @@ class ModelosMachineLearningTab(TabInterface):
 
             return df
 
+    def __init__(self, tab):
+        self.tab = tab
+
+        uploaded_file = "data/dataset.csv"
+
+        if uploaded_file is not None:
+            #df = pd.read_csv(uploaded_file)
+            df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
+            df = self.data_cleaning(df)
+
+        self.render()
 
     def generate_patterns_list(df):
         # Define your patterns
@@ -311,3 +245,71 @@ class ModelosMachineLearningTab(TabInterface):
             return 'zip'
           else:
             return 'unknown'
+
+
+    # Streamlit app
+    #st.title("Predição de Sucesso por Machine Learning")
+    def render(self):
+
+        with self.tab:
+            st.subheader(":blue[Sobre do modelo]", divider="blue")
+
+            st.markdown(
+                """
+                Este conjunto analisa a base de dados a partir de um modelo de Machine Learning.
+            """
+            )
+
+            st.subheader(":blue[Performance do modelo]", divider="blue")
+
+        features, target = self.generate_patterns_list(self.df)
+
+        # Feature and target selection
+        st.header("Selecionar Features e Target")
+        all_columns = features
+        features = st.multiselect("Features", all_columns)
+        target = st.selectbox("Target", target)
+
+        # Model selection
+        st.header("Selecionar Modelo")
+        model_type = st.selectbox(
+            "Model Type",
+            [
+                "Logistic Regression",
+                "Decision Tree - Classification",
+                "Random Forest - Classification",
+                "Linear Regression",
+                "Decision Tree - Regression",
+                "Random Forest - Regression",
+            ],
+        )
+
+        # Run prediction
+        if st.button("Predição"):
+            results = self.predict_success(self.df, features, target, model_type)
+
+            # Display results
+            if isinstance(results, str):  # Handle error message
+                st.error(results)
+            else:
+                table_rows = []
+                for model_name, data in results.items():
+                    successful_count = len(data['successful_df'])
+                    unsuccessful_count = len(data['unsuccessful_df'])
+                    table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
+
+
+                st.subheader("Tipo de Modelo: ")
+                st.code(model_name)
+
+                st.subheader("Score")
+                st.code(data['score'])
+
+                col1, col2 = st.columns(2)
+                with col1:
+                        st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
+                        st.dataframe(results[model_type]['successful_df'])
+                with col2:
+                        st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
+                        st.dataframe(results[model_type]['unsuccessful_df'])
+
