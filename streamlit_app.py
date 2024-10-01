@@ -52,9 +52,9 @@ st.markdown(
     1. Regressão Linear (Linear Regression);
     2. Árvore de Decisão por Classificação (Decision Tree - Classification)
     3. Random Forest por Classificação (Random Forest - Classification)
-    4. Regressão Linear (Linear Regression);
-    5. Árvore de Decisão por Classificação (Decision Tree - Classification)
-    6. Random Forest por Classificação (Random Forest - Classification)
+    4. Regressão Logística (Logistic Regression);
+    5. Árvore de Decisão por Regressão (Decision Tree - Regression)
+    6. Random Forest por Regressão (Random Forest - Regression)
  """
 )
 #>>>>>>> f36f782 (Initial commit)

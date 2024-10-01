@@ -8,10 +8,11 @@ import streamlit as st
 import csv
 import os
 from tabulate import tabulate
+from tabs.tab import TabInterface
 
 class Predict_by_Machine_Learning(TabInterface):
     @st.cache
-        def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
+    def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
           """
           Predizer sucesso usando modelos de classificação ou regressão.
 
@@ -140,7 +141,7 @@ class Predict_by_Machine_Learning(TabInterface):
 
           return results
 
-        def get_file_type(file_path):
+    def get_file_type(file_path):
           """Returns the file type of a file.
           """
           extension = os.path.splitext(file_path)[1].lower()
@@ -154,7 +155,7 @@ class Predict_by_Machine_Learning(TabInterface):
             return 'unknown'
 
 
-        def uploadfile_data_cleaning(df, filename):
+    def uploadfile_data_cleaning(df, filename):
             #filename = "dataset.csv"
 
         #    filetype = get_file_type(filename)
@@ -223,96 +224,96 @@ class Predict_by_Machine_Learning(TabInterface):
             return df
 
 
-        # Streamlit app
-        st.title("Predição de Sucesso por Machine Learning")
+    # Streamlit app
+    st.title("Predição de Sucesso por Machine Learning")
 
-        # File uploader
-        #uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-        uploaded_file = "dataset2.csv"
+    # File uploader
+    #uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
+    uploaded_file = "dataset2.csv"
 
-        df = pd.DataFrame()
-        if uploaded_file is not None:
-            #df = pd.read_csv(uploaded_file)
-            df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
-            df = uploadfile_data_cleaning(df, uploaded_file)
+    df = pd.DataFrame()
+    if uploaded_file is not None:
+        #df = pd.read_csv(uploaded_file)
+        df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
+        df = uploadfile_data_cleaning(df, uploaded_file)
 
-        # Define your patterns
-        pattern1 = r'^IPP.*NUM'  # Pattern 1
-        pattern2 = r'^IEG.*_NUM'   # Pattern 2
-        pattern3 = r'^I.*_NUM'       # Pattern 3
+    # Define your patterns
+    pattern1 = r'^IPP.*NUM'  # Pattern 1
+    pattern2 = r'^IEG.*_NUM'   # Pattern 2
+    pattern3 = r'^I.*_NUM'       # Pattern 3
 
-        # Combine patterns using the '|' operator
-        combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
+    # Combine patterns using the '|' operator
+    combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
 
-        # Filter columns using the combined pattern
-        features = df.filter(regex=combined_pattern).columns.tolist()
+    # Filter columns using the combined pattern
+    features = df.filter(regex=combined_pattern).columns.tolist()
 
-        pattern1 = r'^PONTO.*STR'  # Pattern 1
-        pattern2 = r'^NIVEL.*_STR'   # Pattern 2
-        pattern3 = r'^IND.*'       # Pattern 3
+    pattern1 = r'^PONTO.*STR'  # Pattern 1
+    pattern2 = r'^NIVEL.*_STR'   # Pattern 2
+    pattern3 = r'^IND.*'       # Pattern 3
 
-        # Combine patterns using the '|' operator
-        combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
+    # Combine patterns using the '|' operator
+    combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
 
-        # Filter columns using the combined pattern
-        target = df.filter(regex=combined_pattern).columns.tolist()
+    # Filter columns using the combined pattern
+    target = df.filter(regex=combined_pattern).columns.tolist()
 
 
 
-        # Feature and target selection
-        st.header("Selecionar Features e Target")
-        all_columns = features
-        features = st.multiselect("Features", all_columns)
-        target = st.selectbox("Target", target)
+    # Feature and target selection
+    st.header("Selecionar Features e Target")
+    all_columns = features
+    features = st.multiselect("Features", all_columns)
+    target = st.selectbox("Target", target)
 
-        # Model selection
-        st.header("Selecionar Modelo")
-        model_type = st.selectbox(
-            "Model Type",
-            [
-                "Logistic Regression",
-                "Decision Tree - Classification",
-                "Random Forest - Classification",
-                "Linear Regression",
-                "Decision Tree - Regression",
-                "Random Forest - Regression",
-            ],
-        )
+    # Model selection
+    st.header("Selecionar Modelo")
+    model_type = st.selectbox(
+        "Model Type",
+        [
+            "Logistic Regression",
+            "Decision Tree - Classification",
+            "Random Forest - Classification",
+            "Linear Regression",
+            "Decision Tree - Regression",
+            "Random Forest - Regression",
+        ],
+    )
 
-        # Run prediction
-        if st.button("Predição"):
-            results = predict_success(df, features, target, model_type)
+    # Run prediction
+    if st.button("Predição"):
+        results = predict_success(df, features, target, model_type)
 
-            # Display results
-            if isinstance(results, str):  # Handle error message
-                st.error(results)
-            else:
-                table_rows = []
-                for model_name, data in results.items():
-                    successful_count = len(data['successful_df'])
-                    unsuccessful_count = len(data['unsuccessful_df'])
-                    table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
+        # Display results
+        if isinstance(results, str):  # Handle error message
+            st.error(results)
+        else:
+            table_rows = []
+            for model_name, data in results.items():
+                successful_count = len(data['successful_df'])
+                unsuccessful_count = len(data['unsuccessful_df'])
+                table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
 
-                #table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
-        #		st.write(table)
+            #table = tabulate(table_rows, headers=['Model', 'Score', 'Successful Predictions', 'Unsuccessful Predictions'], tablefmt="fancy_grid", numalign="center", stralign="left")
+    #		st.write(table)
 
-                st.subheader("Tipo de Modelo: ")
-                st.code(model_name)
+            st.subheader("Tipo de Modelo: ")
+            st.code(model_name)
 
-                st.subheader("Score")
-                st.code(data['score'])
+            st.subheader("Score")
+            st.code(data['score'])
 
-            # Optionally, display successful and unsuccessful predictions
-                #st.subheader("Successful Predictions")
-                #st.dataframe(results[model_type]['successful_df'])
+        # Optionally, display successful and unsuccessful predictions
+            #st.subheader("Successful Predictions")
+            #st.dataframe(results[model_type]['successful_df'])
 
-                #st.subheader("Unsuccessful Predictions")
-                #st.dataframe(results[model_type]['unsuccessful_df'])
-          
-                col1, col2 = st.columns(2)
-                with col1:
-                        st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
-                        st.dataframe(results[model_type]['successful_df'])
-                with col2:
-                        st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
-                        st.dataframe(results[model_type]['unsuccessful_df'])
+            #st.subheader("Unsuccessful Predictions")
+            #st.dataframe(results[model_type]['unsuccessful_df'])
+      
+            col1, col2 = st.columns(2)
+            with col1:
+                    st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
+                    st.dataframe(results[model_type]['successful_df'])
+            with col2:
+                    st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
+                    st.dataframe(results[model_type]['unsuccessful_df'])
