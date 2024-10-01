@@ -225,11 +225,11 @@ class ModelosMachineLearning(TabInterface):
 
 
     # Streamlit app
-    st.title("Predição de Sucesso por Machine Learning")
+    #st.title("Predição de Sucesso por Machine Learning")
 
     # File uploader
     #uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-    uploaded_file = "dataset2.csv"
+    uploaded_file = "data/dataset.csv"
 
     df = pd.DataFrame()
     if uploaded_file is not None:
