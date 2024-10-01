@@ -1,5 +1,5 @@
 import streamlit as st
-from tabs.modelo.machine_learning_models_tab import ModelosMachineLearning
+from tabs.modelo.machine_learning_models_tab import ModelosMachineLearningTab
 from utils.constantes import TITULO_MODELO, TITULO_PRINCIPAL
 from utils.layout import output_layout
 
@@ -24,4 +24,4 @@ with st.container():
 
     tab0 = st.tabs(tabs=["Previsões"])
 
-    ModelosMachineLearning(tab0)
+    ModelosMachineLearningTab(tab0)

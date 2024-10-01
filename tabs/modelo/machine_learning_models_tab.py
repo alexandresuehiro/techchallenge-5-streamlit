@@ -10,7 +10,100 @@ import os
 from tabulate import tabulate
 from tabs.tab import TabInterface
 
-class ModelosMachineLearning(TabInterface):
+
+class ModelosMachineLearningTab(TabInterface):
+
+    def data_cleaning(df):
+            for col in [col for col in df.columns if col.endswith('_INT')]:
+              # Convert to float first, handling non-finite values with 'coerce'
+              #df[col] = pd.to_numeric(df[col], errors='coerce')
+              df[col] = df[col].astype(str).str.replace('.0', '', regex=False).replace('nan', '')
+              df[col] = pd.to_numeric(df[col], errors='coerce') # convert the column to numeric type, coerce will replace invalid parsing as NaN
+              # Now convert to integer, filling NaNs with a suitable value (e.g., -1)
+              df[col] = df[col].fillna(0).astype(float)
+              df[col] = df[col].fillna('')
+
+            for col in [col for col in df.columns if col.endswith('_NUM')]:
+              # Convert column to string type
+              df[col] = df[col].astype(str)
+              # Replace '#NULO!' and 'nan' with empty strings
+              df[col] = df[col].str.replace('#NULO!', '').str.replace('nan', '')
+              # Convert column to float type, non-numeric values will be converted to NaN
+              df[col] = pd.to_numeric(df[col], errors='coerce') # use pd.to_numeric with errors='coerce' to handle invalid parsing
+              # Fill NaN values with 0 and convert to float type
+              df[col] = df[col].fillna(0).astype(float)
+              df[col] = df[col].fillna('')
+
+            for col in [col for col in df.columns if col.endswith('_DATE')]:
+              # Convert the column to string type
+              df[col] = df[col].astype(str)
+              # Replace 'nan' with empty string
+              df[col] = df[col].str.replace('nan', '')
+              # Convert the column to numeric type, coerce will replace invalid parsing as NaN
+              df[col] = pd.to_numeric(df[col], errors='coerce')
+              # Convert to datetime objects with year format, handling errors
+              df[col] = pd.to_datetime(df[col], format='%Y', errors='coerce').dt.year
+              # Fill NaN with 0 and convert to int
+              df[col] = df[col].fillna(0).astype(int)
+              # Remove '.0' from the year values
+              df[col] = df[col].astype(str).str.replace('.0', '', regex=False)
+              df[col] = df[col].fillna('')
+
+            for col in [col for col in df.columns if col.endswith('_STR')]:
+              df[col] = df[col].str.replace('#NULO!', '').str.replace('nan', '')
+              df[col] = df[col].fillna('')
+
+            for col in [col for col in df.columns if col.startswith('IDADE')]:
+              # Convert the column to string type
+              df[col] = df[col].astype(str)
+              # Replace 'nan' with empty string
+              df[col] = df[col].str.replace('nan', '')
+              # Convert the column to float type, coerce will replace invalid parsing as NaN
+              df[col] = pd.to_numeric(df[col], errors='coerce') # Use errors='coerce' to handle invalid parsing
+              # Convert the column to integer type
+              df[col] = df[col].fillna(0).astype('int') # Fill NaN with 0 and convert to int
+              df[col] = df[col].fillna('')
+
+            return df
+
+    def __init__(self, tab):
+        self.tab = tab
+
+        uploaded_file = "data/dataset.csv"
+
+        df = pd.DataFrame()
+        if uploaded_file is not None:
+            #df = pd.read_csv(uploaded_file)
+            df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
+            df = data_cleaning(df)
+
+
+        self.render()
+
+    def generate_patterns_list(df):
+        # Define your patterns
+        pattern1 = r'^IPP.*NUM'   # Pattern 1
+        pattern2 = r'^IEG.*_NUM'  # Pattern 2
+        pattern3 = r'^I.*_NUM'    # Pattern 3
+
+        # Combine patterns using the '|' operator
+        combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
+
+        # Filter columns using the combined pattern
+        features = df.filter(regex=combined_pattern).columns.tolist()
+
+        pattern1 = r'^PONTO.*STR'  # Pattern 1
+        pattern2 = r'^NIVEL.*_STR'   # Pattern 2
+        pattern3 = r'^IND.*'       # Pattern 3
+
+        # Combine patterns using the '|' operator
+        combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
+
+        # Filter columns using the combined pattern
+        target = df.filter(regex=combined_pattern).columns.tolist()
+
+        return features, target
+
     @st.cache
     def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
           """
@@ -155,139 +248,68 @@ class ModelosMachineLearning(TabInterface):
             return 'unknown'
 
 
-    def data_cleaning(df):
-            for col in [col for col in df.columns if col.endswith('_INT')]:
-              # Convert to float first, handling non-finite values with 'coerce'
-              #df[col] = pd.to_numeric(df[col], errors='coerce')
-              df[col] = df[col].astype(str).str.replace('.0', '', regex=False).replace('nan', '')
-              df[col] = pd.to_numeric(df[col], errors='coerce') # convert the column to numeric type, coerce will replace invalid parsing as NaN
-              # Now convert to integer, filling NaNs with a suitable value (e.g., -1)
-              df[col] = df[col].fillna(0).astype(float)
-              df[col] = df[col].fillna('')
-
-            for col in [col for col in df.columns if col.endswith('_NUM')]:
-              # Convert column to string type
-              df[col] = df[col].astype(str)
-              # Replace '#NULO!' and 'nan' with empty strings
-              df[col] = df[col].str.replace('#NULO!', '').str.replace('nan', '')
-              # Convert column to float type, non-numeric values will be converted to NaN
-              df[col] = pd.to_numeric(df[col], errors='coerce') # use pd.to_numeric with errors='coerce' to handle invalid parsing
-              # Fill NaN values with 0 and convert to float type
-              df[col] = df[col].fillna(0).astype(float)
-              df[col] = df[col].fillna('')
-
-            for col in [col for col in df.columns if col.endswith('_DATE')]:
-              # Convert the column to string type
-              df[col] = df[col].astype(str)
-              # Replace 'nan' with empty string
-              df[col] = df[col].str.replace('nan', '')
-              # Convert the column to numeric type, coerce will replace invalid parsing as NaN
-              df[col] = pd.to_numeric(df[col], errors='coerce')
-              # Convert to datetime objects with year format, handling errors
-              df[col] = pd.to_datetime(df[col], format='%Y', errors='coerce').dt.year
-              # Fill NaN with 0 and convert to int
-              df[col] = df[col].fillna(0).astype(int)
-              # Remove '.0' from the year values
-              df[col] = df[col].astype(str).str.replace('.0', '', regex=False)
-              df[col] = df[col].fillna('')
-
-            for col in [col for col in df.columns if col.endswith('_STR')]:
-              df[col] = df[col].str.replace('#NULO!', '').str.replace('nan', '')
-              df[col] = df[col].fillna('')
-
-            for col in [col for col in df.columns if col.startswith('IDADE')]:
-              # Convert the column to string type
-              df[col] = df[col].astype(str)
-              # Replace 'nan' with empty string
-              df[col] = df[col].str.replace('nan', '')
-              # Convert the column to float type, coerce will replace invalid parsing as NaN
-              df[col] = pd.to_numeric(df[col], errors='coerce') # Use errors='coerce' to handle invalid parsing
-              # Convert the column to integer type
-              df[col] = df[col].fillna(0).astype('int') # Fill NaN with 0 and convert to int
-              df[col] = df[col].fillna('')
-
-            return df
-
-
     # Streamlit app
     #st.title("Predição de Sucesso por Machine Learning")
+    def render(self):
 
-    uploaded_file = "data/dataset.csv"
+        with self.tab:
+            st.subheader(":blue[Sobre do modelo]", divider="blue")
 
-    df = pd.DataFrame()
-    if uploaded_file is not None:
-        #df = pd.read_csv(uploaded_file)
-        df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
-        df = data_cleaning(df)
+            st.markdown(
+                """
+                Este conjunto analisa a base de dados a partir de um modelo de Machine Learning.
+            """
+            )
 
-    # Define your patterns
-    pattern1 = r'^IPP.*NUM'   # Pattern 1
-    pattern2 = r'^IEG.*_NUM'  # Pattern 2
-    pattern3 = r'^I.*_NUM'    # Pattern 3
+            st.subheader(":blue[Performance do modelo]", divider="blue")
 
-    # Combine patterns using the '|' operator
-    combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
+        features, target = generate_patterns_list(df)
 
-    # Filter columns using the combined pattern
-    features = df.filter(regex=combined_pattern).columns.tolist()
+        # Feature and target selection
+        st.header("Selecionar Features e Target")
+        all_columns = features
+        features = st.multiselect("Features", all_columns)
+        target = st.selectbox("Target", target)
 
-    pattern1 = r'^PONTO.*STR'  # Pattern 1
-    pattern2 = r'^NIVEL.*_STR'   # Pattern 2
-    pattern3 = r'^IND.*'       # Pattern 3
+        # Model selection
+        st.header("Selecionar Modelo")
+        model_type = st.selectbox(
+            "Model Type",
+            [
+                "Logistic Regression",
+                "Decision Tree - Classification",
+                "Random Forest - Classification",
+                "Linear Regression",
+                "Decision Tree - Regression",
+                "Random Forest - Regression",
+            ],
+        )
 
-    # Combine patterns using the '|' operator
-    combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
+        # Run prediction
+        if st.button("Predição"):
+            results = predict_success(df, features, target, model_type)
 
-    # Filter columns using the combined pattern
-    target = df.filter(regex=combined_pattern).columns.tolist()
-
-
-
-    # Feature and target selection
-    st.header("Selecionar Features e Target")
-    all_columns = features
-    features = st.multiselect("Features", all_columns)
-    target = st.selectbox("Target", target)
-
-    # Model selection
-    st.header("Selecionar Modelo")
-    model_type = st.selectbox(
-        "Model Type",
-        [
-            "Logistic Regression",
-            "Decision Tree - Classification",
-            "Random Forest - Classification",
-            "Linear Regression",
-            "Decision Tree - Regression",
-            "Random Forest - Regression",
-        ],
-    )
-
-    # Run prediction
-    if st.button("Predição"):
-        results = predict_success(df, features, target, model_type)
-
-        # Display results
-        if isinstance(results, str):  # Handle error message
-            st.error(results)
-        else:
-            table_rows = []
-            for model_name, data in results.items():
-                successful_count = len(data['successful_df'])
-                unsuccessful_count = len(data['unsuccessful_df'])
-                table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
+            # Display results
+            if isinstance(results, str):  # Handle error message
+                st.error(results)
+            else:
+                table_rows = []
+                for model_name, data in results.items():
+                    successful_count = len(data['successful_df'])
+                    unsuccessful_count = len(data['unsuccessful_df'])
+                    table_rows.append([model_name, data['score'], successful_count, unsuccessful_count])
 
 
-            st.subheader("Tipo de Modelo: ")
-            st.code(model_name)
+                st.subheader("Tipo de Modelo: ")
+                st.code(model_name)
 
-            st.subheader("Score")
-            st.code(data['score'])
+                st.subheader("Score")
+                st.code(data['score'])
 
-            col1, col2 = st.columns(2)
-            with col1:
-                    st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
-                    st.dataframe(results[model_type]['successful_df'])
-            with col2:
-                    st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
-                    st.dataframe(results[model_type]['unsuccessful_df'])
+                col1, col2 = st.columns(2)
+                with col1:
+                        st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
+                        st.dataframe(results[model_type]['successful_df'])
+                with col2:
+                        st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
+                        st.dataframe(results[model_type]['unsuccessful_df'])
