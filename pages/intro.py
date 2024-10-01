@@ -1,8 +1,14 @@
 import streamlit as st
-from tabs.intro.ipea_tab import IntroIPEATab
-from tabs.intro.meta_prophet import IntroMetaProphet
-from tabs.intro.petroleo_brent_tab import IntroPetroleoBrentTab
-from tabs.intro.arima_method import IntroARIMA
+from tabs.intro.passos_magicos import PassosMagicos
+from tabs.intro.educacao_brasil import EducacaoBrasil
+from tabs.intro.educacao_local import EducacaoLocal
+from tabs.intro.decision_tree_classification_method import expDecisionTreeClassification
+from tabs.intro.random_forest_classification_method import expRandomForestClassification
+from tabs.intro.linear_regression_method import expLinearRegression
+from tabs.intro.logistic_regression_method import expLogisticRegression
+from tabs.intro.decision_tree_regression_method import expDecisionTreeRegression
+from tabs.intro.random_forest_regression_method import expRandomForestRegression
+
 from utils.constantes import TITULO_INTRODUCAO, TITULO_PRINCIPAL
 from utils.layout import output_layout
 
@@ -21,20 +27,27 @@ with st.container():
     """
     )
 
-    tab0, tab1, tab2, tab3 = st.tabs(
+    tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs(
         tabs=[
             "Passos Mágicos",
-            "Educação no Brasil x Educação em Embu-Guaçú",
+            "Educação no Brasil",
+            "Educação em Embu-Guaçú",
             "Regressão Linear",
+            "Regressão Logística",
             "Decision Tree - Classification",
             "Random Forest - Classification",
             "Decision Tree - Regression",
-            "Random Forest - Regression",
-            "Regressão Linear",
+            "Random Forest - Regression"
         ]
     )
 
-    IntroPetroleoBrentTab(tab0)
-    IntroIPEATab(tab1)
-    IntroMetaProphet(tab2)
-    IntroARIMA(tab3)
+    PassosMagicos(tab0)
+    EducacaoBrasil(tab1)
+    EducacaoLocal(tab2)
+    expLinearRegression(tab3)
+    expLogisticRegression(tab4)
+    expDecisionTreeClassification(tab5)
+    expRandomForestClassification(tab6)
+    expDecisionTreeRegression(tab7)
+    expRandomForestRegression(tab8)
+ 

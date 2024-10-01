@@ -1,6 +1,5 @@
 import streamlit as st
-from tabs.modelo.arima_tab import ModeloARIMATab
-from tabs.modelo.prophet_tab import ModeloProphetTab
+from tabs.modelo.machine_learning_models_tab import ModelosMachineLearning
 from utils.constantes import TITULO_MODELO, TITULO_PRINCIPAL
 from utils.layout import output_layout
 
@@ -15,11 +14,14 @@ with st.container():
 
     st.markdown(
         """
-        Prever o preço do barril de petróleo é um desafio crítico para muitos setores, e tanto o :blue[Prophet] quanto a :blue[ARIMA] são ferramentas valiosas nessa tarefa. O que torna complexa é a capacidade de um algoritmo prever sazonalidades ou eventos incomuns, como pandemias ou atentados, por isso uma análise mais profunda pode ser necessária além do escopo oferecido até aqui.
+        Prever sucesso é algo complexo e depende de muitos fatores, principalmente sobre a jornada de um ser humano.
+        O que define sucesso? Ou o que define indicativos de sucesso?
+
+        Para essa situação, chegar à faculdade? Um curso técnico? Concluir o Ensino Médio e ter um projeto de vida?
+        Por isso deixamos em aberto o que podemos considerar como marca de sucesso ao avaliar os jovens...
     """
     )
 
-    tab0, tab1 = st.tabs(tabs=["Meta Prophet", "ARIMA"])
+    tab0 = st.tabs(tabs=["Previsões"])
 
-    ModeloProphetTab(tab0)
-    ModeloARIMATab(tab1)
+    ModelosMachineLearning(tab0)

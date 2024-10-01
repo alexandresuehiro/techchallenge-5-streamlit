@@ -75,7 +75,6 @@ class Predict_by_Machine_Learning(TabInterface):
                 'Decision Tree - Regression': DecisionTreeRegressor(random_state=random_state)
           
             }
-
           elif model_type == 'Random Forest - Regression':
             models = {
                 'Random Forest - Regression': RandomForestRegressor(random_state=random_state)

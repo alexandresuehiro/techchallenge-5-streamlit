@@ -11,7 +11,7 @@ def format_number(number, format='%0.0f'):
 def output_layout():
     show_pages(
         [
-            Page("./main.py", "Tech Challenge 4", use_relative_hash=True),                 
+            Page("./main.py", "Tech Challenge 5", use_relative_hash=True),                 
             Page("./pages/intro.py", TITULO_INTRODUCAO, use_relative_hash=True),            
             Page("./pages/historia.py", TITULO_HISTORIA, use_relative_hash=True),           
             Page("./pages/analise.py", TITULO_ANALISE_EXPLORATORIA, use_relative_hash=True),

@@ -9,7 +9,7 @@ class IntroARIMA(TabInterface):
 
     def render(self):
         with self.tab:
-            st.subheader(":blue[ARIMA]", divider="blue")
+            st.subheader(":blue[Regressão Linear (Linear Regression)]", divider="blue")
             st.markdown(
                 """
                     Uma média móvel integrada autoregressiva, ou ARIMA, é um modelo de análise estatística que usa dados de séries temporais para compreender melhor o conjunto de dados ou para prever tendências futuras.
