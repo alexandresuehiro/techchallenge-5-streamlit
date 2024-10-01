@@ -27,57 +27,57 @@ class ModelosMachineLearningTab(TabInterface):
         self.render()
 
     def data_cleaning(self, df):
-            for col in [col for col in df.columns if col.endswith('_INT')]:
+            for col in [col for col in self.df.columns if col.endswith('_INT')]:
               # Convert to float first, handling non-finite values with 'coerce'
               #df[col] = pd.to_numeric(df[col], errors='coerce')
-              df[col] = df[col].astype(str).str.replace('.0', '', regex=False).replace('nan', '')
-              df[col] = pd.to_numeric(df[col], errors='coerce') # convert the column to numeric type, coerce will replace invalid parsing as NaN
+              self.df[col] = self.df[col].astype(str).str.replace('.0', '', regex=False).replace('nan', '')
+              self.df[col] = pd.to_numeric(self.df[col], errors='coerce') # convert the column to numeric type, coerce will replace invalid parsing as NaN
               # Now convert to integer, filling NaNs with a suitable value (e.g., -1)
-              df[col] = df[col].fillna(0).astype(float)
-              df[col] = df[col].fillna('')
+              self.df[col] = self.df[col].fillna(0).astype(float)
+              self.df[col] = self.df[col].fillna('')
 
-            for col in [col for col in df.columns if col.endswith('_NUM')]:
+            for col in [col for col in self.df.columns if col.endswith('_NUM')]:
               # Convert column to string type
-              df[col] = df[col].astype(str)
+              self.df[col] = self.df[col].astype(str)
               # Replace '#NULO!' and 'nan' with empty strings
-              df[col] = df[col].str.replace('#NULO!', '').str.replace('nan', '')
+              self.df[col] = self.df[col].str.replace('#NULO!', '').str.replace('nan', '')
               # Convert column to float type, non-numeric values will be converted to NaN
-              df[col] = pd.to_numeric(df[col], errors='coerce') # use pd.to_numeric with errors='coerce' to handle invalid parsing
+              self.df[col] = pd.to_numeric(self.df[col], errors='coerce') # use pd.to_numeric with errors='coerce' to handle invalid parsing
               # Fill NaN values with 0 and convert to float type
-              df[col] = df[col].fillna(0).astype(float)
-              df[col] = df[col].fillna('')
+              self.df[col] = self.df[col].fillna(0).astype(float)
+              self.df[col] = self.df[col].fillna('')
 
-            for col in [col for col in df.columns if col.endswith('_DATE')]:
+            for col in [col for col in self.df.columns if col.endswith('_DATE')]:
               # Convert the column to string type
-              df[col] = df[col].astype(str)
+              self.df[col] = self.df[col].astype(str)
               # Replace 'nan' with empty string
-              df[col] = df[col].str.replace('nan', '')
+              self.df[col] = self.df[col].str.replace('nan', '')
               # Convert the column to numeric type, coerce will replace invalid parsing as NaN
-              df[col] = pd.to_numeric(df[col], errors='coerce')
+              self.df[col] = pd.to_numeric(self.df[col], errors='coerce')
               # Convert to datetime objects with year format, handling errors
-              df[col] = pd.to_datetime(df[col], format='%Y', errors='coerce').dt.year
+              self.df[col] = pd.to_datetime(self.df[col], format='%Y', errors='coerce').dt.year
               # Fill NaN with 0 and convert to int
-              df[col] = df[col].fillna(0).astype(int)
+              self.df[col] = self.df[col].fillna(0).astype(int)
               # Remove '.0' from the year values
-              df[col] = df[col].astype(str).str.replace('.0', '', regex=False)
-              df[col] = df[col].fillna('')
+              self.df[col] = self.df[col].astype(str).str.replace('.0', '', regex=False)
+              self.df[col] = self.df[col].fillna('')
 
-            for col in [col for col in df.columns if col.endswith('_STR')]:
-              df[col] = df[col].str.replace('#NULO!', '').str.replace('nan', '')
-              df[col] = df[col].fillna('')
+            for col in [col for col in self.df.columns if col.endswith('_STR')]:
+              self.df[col] = self.df[col].str.replace('#NULO!', '').str.replace('nan', '')
+              self.df[col] = self.df[col].fillna('')
 
-            for col in [col for col in df.columns if col.startswith('IDADE')]:
+            for col in [col for col in self.df.columns if col.startswith('IDADE')]:
               # Convert the column to string type
-              df[col] = df[col].astype(str)
+              self.df[col] = self.df[col].astype(str)
               # Replace 'nan' with empty string
-              df[col] = df[col].str.replace('nan', '')
+              self.df[col] = self.df[col].str.replace('nan', '')
               # Convert the column to float type, coerce will replace invalid parsing as NaN
-              df[col] = pd.to_numeric(df[col], errors='coerce') # Use errors='coerce' to handle invalid parsing
+              self.df[col] = pd.to_numeric(self.df[col], errors='coerce') # Use errors='coerce' to handle invalid parsing
               # Convert the column to integer type
-              df[col] = df[col].fillna(0).astype('int') # Fill NaN with 0 and convert to int
-              df[col] = df[col].fillna('')
+              self.df[col] = self.df[col].fillna(0).astype('int') # Fill NaN with 0 and convert to int
+              self.df[col] = self.df[col].fillna('')
 
-            return df
+            return self.df
 
     def generate_patterns_list(self, df):
         # Define your patterns
@@ -89,7 +89,7 @@ class ModelosMachineLearningTab(TabInterface):
         combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
 
         # Filter columns using the combined pattern
-        features = df.filter(regex=combined_pattern).columns.tolist()
+        features = self.df.filter(regex=combined_pattern).columns.tolist()
 
         pattern1 = r'^PONTO.*STR'  # Pattern 1
         pattern2 = r'^NIVEL.*_STR'   # Pattern 2
@@ -99,7 +99,7 @@ class ModelosMachineLearningTab(TabInterface):
         combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
 
         # Filter columns using the combined pattern
-        target = df.filter(regex=combined_pattern).columns.tolist()
+        target = self.df.filter(regex=combined_pattern).columns.tolist()
 
         return features, target
 
@@ -124,7 +124,7 @@ class ModelosMachineLearningTab(TabInterface):
           threshold = 0.1  # Threshold for regression predictions
 
           # 1. Drop rows with nulls or empty strings in features OR target
-          df_cleaned = df.dropna(subset=features + [target])  # Drop if missing in any feature or target
+          df_cleaned = self.df.dropna(subset=features + [target])  # Drop if missing in any feature or target
           df_cleaned = df_cleaned[~df_cleaned[features + [target]].eq('').any(axis=1)]  # Drop if empty string in any feature or target
 
           df_dropna = df_cleaned
