@@ -72,11 +72,10 @@ class ModelosMachineLearningTab(TabInterface):
 
         uploaded_file = "data/dataset.csv"
 
-        df = pd.DataFrame()
         if uploaded_file is not None:
             #df = pd.read_csv(uploaded_file)
             df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
-            df = self.data_cleaning(df)
+            df = self.data_cleaning()
 
 
         self.render()
