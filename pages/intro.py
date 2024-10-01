@@ -17,16 +17,20 @@ with st.container():
 
     st.markdown(
         """
-        Nesta introdução, são descritos alguns tópicos importantes para o entendimento do projeto, dentre eles oque é o petróleo Brent, o IPEA e os modelos de Machine Learning usados: o Meta Prophet e o ARIMA.
+        Nesta introdução, são descritos alguns tópicos importantes para entender a missão da Passos Mágicos e os modelos de Machine Learning usados: o Meta Prophet e o ARIMA.
     """
     )
 
     tab0, tab1, tab2, tab3 = st.tabs(
         tabs=[
-            "Petróleo Brent",
-            "Instituto de Pesquisa Econômica Aplicada (IPEA)",
-            "Meta Prophet",
-            "ARIMA"
+            "Passos Mágicos",
+            "Educação no Brasil x Educação em Embu-Guaçú",
+            "Regressão Linear",
+            "Decision Tree - Classification",
+            "Random Forest - Classification",
+            "Decision Tree - Regression",
+            "Random Forest - Regression",
+            "Regressão Linear",
         ]
     )
 

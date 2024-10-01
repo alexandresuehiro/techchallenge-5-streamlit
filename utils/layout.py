@@ -32,15 +32,15 @@ def output_layout():
         st.subheader("Repositórios do projeto")
         st.link_button(
             "Repositório Streamlit",
-            "https://github.com/alexandresuehiro/techchallenge4_Streamlit_from_zero",
+            "https://github.com/alexandresuehiro/techchallenge-5-streamlit",
             help=None,
             type="secondary",
             disabled=False,
             use_container_width=False,
         )
         st.link_button(
-            "Repositório Jupyter Notebook",
-            "https://github.com/alexandresuehiro/Postgrad_FIAP_3DTAT/tree/main/techchallenge-4",
+            "Repositório Jupyter Notebook, Análises e outros",
+            "https://github.com/alexandresuehiro/Postgrad_FIAP_3DTAT/tree/main/techchallenge-5",
             help=None,
             type="secondary",
             disabled=False,
