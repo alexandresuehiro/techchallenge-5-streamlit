@@ -28,7 +28,7 @@ class ModelosMachineLearning(TabInterface):
             A dictionary containing the trained model, accuracy/MSE score, predictions,
             and a DataFrame with 'NOME' and index for successful and unsuccessful predictions.
           """
-          
+
           threshold = 0.1  # Threshold for regression predictions
 
           # 1. Drop rows with nulls or empty strings in features OR target
@@ -140,8 +140,7 @@ class ModelosMachineLearning(TabInterface):
                                        'sorted_predictions_df': sorted_predictions_df} # Add sorted predictions to results
 
           return results
-    
-    @st.cache(allow_output_mutation=True)
+
     def get_file_type(file_path):
           """Returns the file type of a file.
           """
