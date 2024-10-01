@@ -10,7 +10,7 @@ import os
 from tabulate import tabulate
 from tabs.tab import TabInterface
 
-class Predict_by_Machine_Learning(TabInterface):
+class ModelosMachineLearning(TabInterface):
     @st.cache
     def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
           """
