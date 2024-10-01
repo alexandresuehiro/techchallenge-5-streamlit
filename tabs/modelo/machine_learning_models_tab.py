@@ -12,6 +12,7 @@ from tabs.tab import TabInterface
 
 
 class ModelosMachineLearningTab(TabInterface):
+    df = pd.DataFrame
 
     def data_cleaning(df):
             for col in [col for col in df.columns if col.endswith('_INT')]:
@@ -75,7 +76,7 @@ class ModelosMachineLearningTab(TabInterface):
         if uploaded_file is not None:
             #df = pd.read_csv(uploaded_file)
             df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
-            df = data_cleaning(df)
+            df = self.data_cleaning(df)
 
 
         self.render()
@@ -263,7 +264,7 @@ class ModelosMachineLearningTab(TabInterface):
 
             st.subheader(":blue[Performance do modelo]", divider="blue")
 
-        features, target = generate_patterns_list(df)
+        features, target = self.generate_patterns_list(self.df)
 
         # Feature and target selection
         st.header("Selecionar Features e Target")
@@ -287,7 +288,7 @@ class ModelosMachineLearningTab(TabInterface):
 
         # Run prediction
         if st.button("Predição"):
-            results = predict_success(df, features, target, model_type)
+            results = self.predict_success(self.df, features, target, model_type)
 
             # Display results
             if isinstance(results, str):  # Handle error message
