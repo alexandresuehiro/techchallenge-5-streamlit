@@ -13,15 +13,16 @@ with st.container():
     
     st.markdown(
         """
-        1. Petróleo Brent em: https://en.wikipedia.org/wiki/Brent_Crude
-        2. Sobre o IPEA em: https://www.ipea.gov.br/portal/coluna-3/institucional-sep/quem-somos
-        3. Impactos da Guerra da Ucrania em: https://jornal.unesp.br/2022/07/25/guerra-da-ucrania-pode-provocar-uma-reestruturacao-do-comercio-energetico-global/
-        4. Primavera Árabe e Petróleo em: https://www.chathamhouse.org/2011/02/arab-spring-and-oil-markets
-        5. Meta Prophet Quick Start. Disponível em: https://facebook.github.io/prophet/docs/quick_start.html
-        6. Precificação da Omicron e impacto na cotação do petróleo em: https://www.bloomberg.com/news/articles/2021-12-14/oil-is-pricing-in-omicron-impact-stock-market-should-be-next
-        7. Serializing ARIMA models em: https://alkaline-ml.com/pmdarima/serialization.html
-        8. Sobre ARIMA em: https://machinelearningmastery.com/arima-for-time-series-forecasting-with-python/
-        9. Sobre Meta Prophet em: https://facebook.github.io/prophet/docs/quick_start.html
+        1. Sobre a Passos Mágicos em: https://passosmagicos.org.br/quem-somos/
+        2. Sobre o PEDE 2022 - SILVA, Dario Rodrigues da. Pesquisa Extensiva do Desenvolvimento Educacional - PEDE 2022.
+                                Associação Passos Mágicos. São Paulo
+        3. Sobre Jornada do Herói em: https://rockcontent.com/br/talent-blog/jornada-do-heroi/
+        4. Sobre piora de níveis educacionais na pandemia em: https://www.cnnbrasil.com.br/nacional/inep-aponta-piora-em-todos-os-niveis-da-educacao-basica-devido-a-pandemia/
+        5. Sobre desempenho escolar durante a pandemia em: https://www.correiobraziliense.com.br/brasil/2022/09/5037496-apos-pandemia-aprendizado-no-brasil-piora-em-todos-os-niveis-escolares.html
+        6. Sobre Linear Regression em: https://www.geeksforgeeks.org/ml-linear-regression/
+        7. Sobre Logistic Regression: https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+        8. Sobre Decision Tree em: https://scikit-learn.org/stable/modules/tree.html
+        9. Sobre Random Forest em: https://scikit-learn.org/stable/modules/ensemble.html#forest
         
     """
     )
