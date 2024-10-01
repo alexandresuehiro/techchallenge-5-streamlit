@@ -88,7 +88,7 @@ class ModelosMachineLearningTab(TabInterface):
                         st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
                         st.dataframe(results[model_type]['unsuccessful_df'])
 
-
+        self.render()
 
 
     def data_cleaning(df):
