@@ -21,10 +21,10 @@ class ModelosMachineLearningTab(TabInterface):
 
         if uploaded_file is not None:
             #df = pd.read_csv(uploaded_file)
-            df_load = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
-            df = self.data_cleaning(df_load)
+            self.df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
+            self.df = self.data_cleaning(self.df)
 
-        self.render(df)
+        self.render()
 
     def data_cleaning(self, df):
             for col in [col for col in df.columns if col.endswith('_INT')]:
@@ -103,7 +103,7 @@ class ModelosMachineLearningTab(TabInterface):
 
         return features, target
 
-    @st.cache
+#   @st.cache
     def predict_success(self, df, features, target, model_type, test_size=0.2, random_state=42):
           """
           Predizer sucesso usando modelos de classificação ou regressão.
@@ -249,7 +249,7 @@ class ModelosMachineLearningTab(TabInterface):
 
     # Streamlit app
     #st.title("Predição de Sucesso por Machine Learning")
-    def render(self, df):
+    def render(self):
 
         with self.tab:
             st.subheader(":blue[Sobre do modelo]", divider="blue")
@@ -262,13 +262,13 @@ class ModelosMachineLearningTab(TabInterface):
 
             st.subheader(":blue[Performance do modelo]", divider="blue")
 
-        features, target = self.generate_patterns_list(df)
+        features, targets = self.generate_patterns_list(self.df)
 
         # Feature and target selection
         st.header("Selecionar Features e Target")
         all_columns = features
         features = st.multiselect("Features", all_columns)
-        target = st.selectbox("Target", target)
+        target = st.selectbox("Target", targets)
 
         # Model selection
         st.header("Selecionar Modelo")
@@ -305,11 +305,12 @@ class ModelosMachineLearningTab(TabInterface):
                 st.subheader("Score")
                 st.code(data['score'])
 
-                col1, col2 = st.columns(2)
-                with col1:
-                        st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
-                        st.dataframe(results[model_type]['successful_df'])
-                with col2:
-                        st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
-                        st.dataframe(results[model_type]['unsuccessful_df'])
+                with st.container():
+                  col1, col2 = st.columns(2)
+                  with col1:
+                      st.subheader(f"Predição de Sucesso\nTotal: {successful_count}")
+                      st.dataframe(results[model_type]['successful_df'])
+                  with col2:
+                      st.subheader(f"Predição de Falha\nTotal: {unsuccessful_count}")
+                      st.dataframe(results[model_type]['unsuccessful_df'])
 
