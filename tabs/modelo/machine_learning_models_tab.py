@@ -233,7 +233,7 @@ class ModelosMachineLearningTab(TabInterface):
 
           return results
 
-    def get_file_type(file_path):
+    def get_file_type(self, file_path):
           """Returns the file type of a file.
           """
           extension = os.path.splitext(file_path)[1].lower()
@@ -262,7 +262,7 @@ class ModelosMachineLearningTab(TabInterface):
 
             st.subheader(":blue[Performance do modelo]", divider="blue")
 
-        features, target = self.generate_patterns_list(self.df)
+        features, target = self.generate_patterns_list(df)
 
         # Feature and target selection
         st.header("Selecionar Features e Target")
