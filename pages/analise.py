@@ -5,7 +5,7 @@ import plotly.graph_objs as go
 from utils.constantes import TITULO_ANALISE_EXPLORATORIA, TITULO_PRINCIPAL
 from utils.layout import output_layout, format_number
 
-from pages.indicadores import SobreIndicadoresAvaliacao
+#from pages.indicadores import SobreIndicadoresAvaliacao
 from tabs.analises.PerfilEstudantes_tab import PerfilEstudantes
 from tabs.analises.AnaliseIndicadoresPorPedra_tab import AnaliseIndicadoresPorPedra
 from tabs.analises.MapaCorrelacaoIndicadores_tab import MapaCorrelacaoIndicadores
