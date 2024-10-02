@@ -10,11 +10,9 @@ output_layout()
 
 with st.container():
     st.header(f":orange[{TITULO_REFLEXOES}]")
-
+    st.subheader(f":blue[DISCUSSÃO SOBRE AS ANÁLISES REALIZADAS]")
     st.markdown(
         """
-        DISCUSSÃO SOBRE AS ANÁLISES REALIZADAS
-
         * **Quais indicadores cooperaram mais para o atual cenário?**
         Pelas análises realizadas, podemos dizer que o Indicador Psicopedagógico (IPP) e o Indicador de Engajamento (IEG) tiveram maior influência do que os outros indicadores no INDE. Se olharmos o mapa de correlação, uma mudança nesses dois pontos pode afetar justamente a avaliação do Indicador do Ponto de Virada (IPV). Como o fator de saúde mental e a realização de atividades afetam diretamente a capacidade de aprendizado, isso pode ter influenciado o Indicador de Desempenho Acadêmico e, por consequência, o Indicador de Ponto de Virada.
         
