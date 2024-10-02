@@ -20,24 +20,20 @@ output_layout()
 
 with st.container():
     st.header(f":orange[{TITULO_INTRODUCAO}]")
-
     st.write(
         """
         Nesta introdução, são descritos alguns tópicos importantes para entender:
          * Panorama da Educação Brasileira
          * Sobre a Passos Mágicos:
-            <ol>
-                <li>Nossa História</li>
-                <li>O que fazemos</li>
-                <li>Missão e Valores</li>
-            </ol>
+            1. Nossa História
+            2. O que fazemos
+            3. Missão e Valores
+
          * os modelos de Machine Learning usados: 
-            <ol>
-                <li>Regressão Linear (Linear Regression)</li>
-                <li>Regressão Logística (Logistic Regression)</li>
-                <li>Árvores de Decisão (Decision Trees)</li>
-                <li>Florestas Aleatórias (Random Forest)</li>
-            </ol>
+            1. Regressão Linear (Linear Regression)
+            2. Regressão Logística (Logistic Regression)
+            3. Árvores de Decisão (Decision Trees)
+            4. Florestas Aleatórias (Random Forest)
     """
     )
 
