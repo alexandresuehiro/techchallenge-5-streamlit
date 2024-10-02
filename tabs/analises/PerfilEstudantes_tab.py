@@ -1,6 +1,6 @@
 import streamlit as st
 from tabs.tab import TabInterface
-
+import pandas as pd
 
 class PerfilEstudantes(TabInterface):
     def __init__(self, tab):
@@ -16,13 +16,15 @@ class PerfilEstudantes(TabInterface):
                         ["Ingressante",	"133",	"235",	"398"],
                         ["Total",	"725",	"688",	"862"]
                     ]
+            data1 = pd.Dataframe(tabela1).transpose()
+            data1 = data1.transpose()
             st.markdown(
                 """
                     Ingressantes e Veteranos
                     
                     De acordo com as informações obtidas da base de dados, havia cerca de 725 estudantes ao longo de 2020, 685 em 2021 e 862 em 2022:
                 """)
-            st.table(tabela1)
+            st.dataframe(data1)
             st.markdown(
                 """
                         Ano de Ingresso
