@@ -10,7 +10,7 @@ class PerfilEstudantes(TabInterface):
     def render(self):
         with self.tab:
             st.subheader(":blue[Perfil dos Estudantes]", divider="blue")
-            data1 = pd.read_csv("data/01_ingressantes_veteranos.csv", header=0)
+            data1 = pd.read_csv("data/01_ingressantes_veteranos.csv", header=0, sep=";")
             data1 = data1.transpose()
             st.markdown(
                 """
@@ -20,7 +20,7 @@ class PerfilEstudantes(TabInterface):
                 """)
             st.dataframe(data1)
 
-            data2 = pd.read_csv("data/02_ano_ingresso.csv", header=0)
+            data2 = pd.read_csv("data/02_ano_ingresso.csv", header=0, sep=";")
             
             st.markdown(
                 """
@@ -29,7 +29,7 @@ class PerfilEstudantes(TabInterface):
                 """)
             st.dataframe(data2)
 
-            data3 = pd.read_csv("data/03_instituicao_ensino.csv", header=0)
+            data3 = pd.read_csv("data/03_instituicao_ensino.csv", header=0, sep=";")
             
             st.markdown(
                 """
@@ -47,7 +47,7 @@ class PerfilEstudantes(TabInterface):
                 """)
             st.dataframe(data4)
 
-            data4 = pd.read_csv("data/04_perfil_fase.csv", header=0)
+            data4 = pd.read_csv("data/04_perfil_fase.csv", header=0, sep=";")
             
             st.markdown(
                 """
@@ -55,7 +55,7 @@ Perfil por Pedra / INDE
                 """)
             st.dataframe(data5)
 
-            data5 = pd.read_csv("data/05_perfil_pedra_INDE.csv", header=0)
+            data5 = pd.read_csv("data/05_perfil_pedra_INDE.csv", header=0, sep=";")
             
             st.markdown(
                 """ 
