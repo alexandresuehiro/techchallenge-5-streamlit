@@ -43,33 +43,54 @@ class SobreIndicadoresAvaliacao(TabInterface):
             
             Dimensão psicossocial:
             *   IAA: Indicador de Autoavaliação (Indicador de Avaliação)
-            * IPS: Indicador Psicossocial (Indicador de Conselho)
+            *   IPS: Indicador Psicossocial (Indicador de Conselho)
 
             Dimensão psicopedagógica:
             *   IPP: Indicador Psicopedagógico (Indicador de Conselho)
             *   IPV: Indicador de Ponto de Virada (Indicador de Conselho)
         """
         )
+        # Criando 8 expanders
 
-        tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(
-            tabs=[
-                "INDE",
-                "IAA",
-                "IAN",
-                "IDA",
-                "IEG",
-                "IPS",
-                "IPP",
-                "IPV"
-            ]
-        )
+        # Se você tiver muitas seções, pode utilizar um loop for para simplificar:
+        for i in range(1, 9):
+            with st.expander(f"INDE"):
+                SobreINDE()
+            with st.expander(f"IAA"):
+                SobreIAA()
+            with st.expander(f"IAN"):
+                SobreIAN()
+            with st.expander(f"IDA"):
+                SobreIDA()
+            with st.expander(f"IEG"):
+                SobreIEG()
+            with st.expander(f"IPS"):
+                SobreIPS()
+            with st.expander(f"IPP"):
+                SobreIPP()
+            with st.expander(f"IPV"):
+                SobreIPV()
 
-        SobreINDE(tab0)
-        SobreIAA(tab1)
-        SobreIAN(tab2)
-        SobreIDA(tab3)
-        SobreIEG(tab4)
-        SobreIPS(tab5)
-        SobreIPP(tab6)
-        SobreIPV(tab7)
+
+        # tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(
+        #     tabs=[
+        #         "INDE",
+        #         "IAA",
+        #         "IAN",
+        #         "IDA",
+        #         "IEG",
+        #         "IPS",
+        #         "IPP",
+        #         "IPV"
+        #     ]
+        # )
+
+        # SobreINDE(tab0)
+        # SobreIAA(tab1)
+        # SobreIAN(tab2)
+        # SobreIDA(tab3)
+        # SobreIEG(tab4)
+        # SobreIPS(tab5)
+        # SobreIPP(tab6)
+        # SobreIPV(tab7)
     
