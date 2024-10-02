@@ -20,7 +20,7 @@ output_layout()
 
 with st.container():
     st.header(f":orange[{TITULO_INTRODUCAO}]")
-    st.write(
+    st.markdown(
         """
         Nesta introdução, são descritos alguns tópicos importantes para entender:
          * Panorama da Educação Brasileira
@@ -28,9 +28,8 @@ with st.container():
             1. Nossa História
             2. O que fazemos
             3. Missão e Valores
-
-            
-            
+        <br>
+        <br>
          * os modelos de Machine Learning usados: 
             1. Regressão Linear (Linear Regression)
             2. Regressão Logística (Logistic Regression)
