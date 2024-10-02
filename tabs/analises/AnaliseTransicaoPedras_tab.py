@@ -236,6 +236,99 @@ class AnaliseTransicaoPedras(TabInterface):
                 """)
 
 
+            st.subheader('Análise de IPV na Transição Ametista - Ametista - Ametista') 
+            st.markdown(
+                """
+						Vamos considerar o Indicador de Ponto de Virada como ponto a analisar em mais detalhes o cenário Ametista - Ametista - Ametista. 
+                """)
+            st.dataframe(data28)
+            st.markdown(
+                """
+                        Para este cenário, vemos a queda acumulada não foi alta, com poucos casos em que a queda foi mais de um ponto. 
+                """)
+            st.subheader('Análise de IPV na Transição Ametista - Ametista - Ágata')                       
+            st.markdown(
+                """
+						Vamos considerar o Indicador de Ponto de Virada como ponto a analisar em mais detalhes o cenário Ametista - Ametista - Ágata. 
+                """)
+  
+            st.dataframe(data29)
+            st.markdown(
+                """
+						Neste cenário, foi similar ao anteriormente, com muitos não apresentando queda maior que um ponto. Ainda assim, a diferença entre 2021-2022 foi considerável em muitos casos.
+                """)
+
+            st.subheader('Análise de IPV na Transição Topázio - Topázio - Topázio')
+            st.markdown(
+                """ 
+						Vamos considerar o Indicador de Ponto de Virada como ponto a analisar em mais detalhes o cenário Topázio - Topázio - Topázio. 
+                """)
+            st.dataframe(data30)
+
+            st.markdown(
+                """ 
+						Neste cenário, foi similar ao anteriormente, com muitos não apresentando queda maior que um ponto. Ainda assim, a diferença entre 2021-2022 foi considerável em muitos casos.
+                """)
+            
+
+            st.subheader('Análise de IPV na Transição Topázio - Ametista - Ametista')
+            st.markdown(
+                """ 
+                    Vamos considerar o Indicador de Ponto de Virada como ponto a analisar em mais detalhes o cenário Topázio - Ametista - Ametista. 
+                """)
+            st.dataframe(data31)
+
+            st.markdown(
+                """ 
+                    Neste cenário é possível notar como alguns recuperaram boa parte da avaliação desse indicador ao apresentador o cenário “Queda – Ascensão”.
+                """)
+            
+
+            st.subheader('Análise de IPV na Transição Ametista - Ágata - Ágata')
+            st.markdown(
+                """ 
+					Vamos considerar o Indicador de Ponto de Virada como ponto a analisar em mais detalhes o cenário Ametista - Ágata - Ágata. 
+                """)
+            st.dataframe(data32)
+
+            st.markdown(
+                """ 
+                    No período 2020-2021 houve muitos casos de quedas, porém dentre esses muitos casos tivemos também recuperação de parte da queda da avaliação, o que mostra uma tendência de melhoria ao longo do tempo.
+                """)
+            
+
+            st.subheader('Análise de IPV na Transição Ametista - Ágata - Ametista')
+            st.markdown(
+                """ 
+                    Vamos considerar o Indicador de Ponto de Virada como ponto a analisar em mais detalhes o cenário Ametista - Ágata - Ametista. 
+                """)
+            st.dataframe(data33)
+
+            st.markdown(
+                """ 
+                    Este cenário teve algumas surpresas positivas, como a quantidade de recuperação no período de 2021-2022, após uma considerável queda no período 2020-2021. A pontuação perdida acumulada foi consideravelmente baixa na maioria dos casos.
+                """)
+            
+
+
+            st.subheader('Análise de IPV na Transição Ametista - Topázio - Topázio')
+            st.markdown(
+                """ 
+					Vamos considerar o Indicador de Ponto de Virada como ponto a analisar em mais detalhes o cenário Ametista  Topázio  Topázio. 
+                """)
+            st.dataframe(data34)
+
+            st.markdown(
+                """ 
+                    Muitos dos estudantes neste cenário apresentaram um valor alto no início de 2020 e ainda mantiveram uma ascensão em 2021. Em muitos casos que vimos queda, foi por terem obtido uma nota muito alta em 2021 e uma pequena perda em 2022.
+                """)
+
+
+            st.subheader('Conclusão da Análise de IPV')
+            st.markdown(
+                """ 
+                    O Indicador de Ponto de Virada se mostrou mais estável e possível de recuperar em 2022 para os perfis Ametista e Topázio em maior frequência que o restante. Como este Indicador tem uma componente psicológica muito forte, pode ser que um trabalho para entender a raiz da variação da avaliação seja necessária para melhorar os outros indicadores. 
+                """)
 
 
             st.divider()
