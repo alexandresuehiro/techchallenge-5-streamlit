@@ -40,22 +40,22 @@ class expLinearRegression(TabInterface):
                     Enquanto a Floresta Aleatória é um método de ensemble que combina múltiplas árvores de decisão, a regressão linear é um modelo linear que busca encontrar uma única relação linear entre as variáveis.
 
                     Floresta Aleatória:
-                        - Múltiplas árvores de decisão.
-                        - Captura relações não lineares.
-                        - Alta precisão em diversos problemas.
-                        - Pode ser mais difícil de interpretar.
+                    * Múltiplas árvores de decisão.
+                    * Captura relações não lineares.
+                    * Alta precisão em diversos problemas.
+                    * Pode ser mais difícil de interpretar.
                     
                     
                     Regressão Linear:
-                        - Uma única reta.
-                        - Captura apenas relações lineares.
-                        - Mais simples de entender e interpretar.
-                        - Pode não ser adequada para dados com relações não lineares.
+                    * Uma única reta.
+                    * Captura apenas relações lineares.
+                    * Mais simples de entender e interpretar.
+                    * Pode não ser adequada para dados com relações não lineares.
                     
                     Quando usar a Regressão Linear:
-                        - Relações lineares: Quando você acredita que existe uma relação linear entre as variáveis.
-                        - Interpretabilidade: Quando a interpretação dos coeficientes é importante.
-                        - Dados simples: Quando os dados são relativamente simples e sem muitos outliers.
+                    * Relações lineares: Quando você acredita que existe uma relação linear entre as variáveis.
+                    * Interpretabilidade: Quando a interpretação dos coeficientes é importante.
+                    * Dados simples: Quando os dados são relativamente simples e sem muitos outliers.
                 """),
             st.subheader(":blue[Em resumo...", divider="blue")
             st.markdown(
