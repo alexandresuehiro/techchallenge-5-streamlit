@@ -11,7 +11,7 @@ st.set_page_config(
 output_layout()
 
 
-with st.container():
+with st._main():
     def __init__(self, tab):
         self.tab = tab
         self.render()
