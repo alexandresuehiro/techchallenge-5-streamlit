@@ -12,13 +12,42 @@ class expRandomForestRegression(TabInterface):
             st.subheader(":blue[Floresta Aleatória Regressiva (Random Forest - Regression)]", divider="blue")
             st.markdown(
                 """
-                    O que é floresta aleatória?
-                    Floresta aleatória é um algoritmo de machine learning comumente usado, com marca registrada por Leo Breiman e Adele Cutler, que combina a saída de várias árvores de decisão para alcançar um único resultado. Sua facilidade de uso e flexibilidade incentivaram a sua adoção, pois lida tanto com problemas de classificação quanto de regressão.
+                    Floresta Aleatória: Uma Explicação Intuitiva
+Imagine plantar uma floresta. Em vez de plantar árvores de uma única espécie, você planta diversas espécies, cada uma com suas características únicas. Essa diversidade faz com que a floresta seja mais resistente a pragas e doenças, e capaz de se adaptar a diferentes condições climáticas.
 
-                    Como funciona?
-                    Os algoritmos de floresta aleatória possuem três hiperparâmetros principais, os quais devem ser definidos antes do treinamento. Estes incluem o tamanho do nó, o número de árvores e o número de recursos amostrados. A partir daí, o classificador de floresta aleatória pode ser usado para resolver problemas de regressão ou classificação.
+A Floresta Aleatória funciona de forma similar. Em vez de árvores, temos árvores de decisão. Cada árvore de decisão é um modelo simples que "aprende" a classificar dados ou fazer previsões. Ao invés de plantar uma única árvore, criamos uma floresta com muitas árvores, cada uma construída com um subconjunto aleatório dos dados e considerando apenas um subconjunto aleatório das características.
 
-                    O algoritmo de floresta aleatória é composto por uma coleção de árvores de decisão, sendo que cada árvore na combinação é composta por uma amostra de dados extraída de um conjunto de treinamento com substituição, chamada de amostra bootstrap. Dessa amostra de treinamento, um terço dela é separado como dados de teste, conhecida como amostra out-of-bag (OOB), a qual iremos abordar mais tarde. Outra instância de aleatoriedade é então injetada por meio do bagging de recursos, incluindo mais diversidade ao conjunto de dados e reduzindo a correlação entre as árvores de decisão. Dependendo do tipo de problema, a determinação da previsão irá variar. Para uma tarefa de regressão, as árvores de decisão individuais terão suas médias calculadas, e para uma tarefa de classificação, um voto da maioria, ou seja, a variável categórica mais frequente, produzirá a classe prevista. Por fim, a amostra OOB é então utilizada para validação cruzada, finalizando esse previsão.
+A força da Floresta Aleatória está na diversidade. Cada árvore "opina" sobre a classificação ou previsão, e a decisão final é tomada por votação. Essa abordagem reduz o risco de overfitting (quando o modelo se ajusta demais aos dados de treinamento e perde a capacidade de generalizar para novos dados) e aumenta a precisão do modelo.
+
+Classificador vs. Regressor: Qual a diferença?
+Classificador: Um classificador é usado para prever a classe a qual um determinado exemplo pertence. Por exemplo, um classificador de e-mails pode determinar se um e-mail é spam ou não spam. A saída de um classificador é geralmente uma categoria (por exemplo, "spam", "não spam", "gato", "cachorro").
+
+Regressor: Um regressor é usado para prever um valor numérico contínuo. Por exemplo, um regressor pode ser usado para prever a temperatura máxima de amanhã, o preço de uma casa ou a idade de uma pessoa. A saída de um regressor é um número real (por exemplo, 25°C, R$ 500.000, 35 anos).
+
+Em resumo:
+
+Classificação: Prever a classe a qual um exemplo pertence.
+Regressão: Prever um valor numérico contínuo.
+Florestas Aleatórias podem ser usadas tanto para classificação quanto para regressão. A diferença está no tipo de problema que queremos resolver e no tipo de saída que esperamos do modelo.
+
+Exemplo:
+
+Classificação: Prever se um cliente irá comprar um produto (sim ou não).
+Regressão: Prever o valor que um cliente irá gastar na próxima compra.
+Em ambos os casos, a Floresta Aleatória cria múltiplas árvores de decisão e combina suas previsões para obter um resultado mais preciso e robusto.
+
+Vantagens da Floresta Aleatória:
+
+Alta precisão: Geralmente obtém resultados muito bons em diversos tipos de problemas.
+Robustez: É pouco sensível a outliers e ruídos nos dados.
+Capacidade de lidar com diferentes tipos de dados: Funciona bem com dados numéricos e categóricos.
+Fácil de interpretar: A importância de cada característica pode ser avaliada.
+Em resumo, a Floresta Aleatória é um algoritmo de aprendizado de máquina versátil e poderoso, amplamente utilizado em diversas áreas, como:
+
+Análise de dados: Para encontrar padrões e fazer previsões.
+Reconhecimento de padrões: Para identificar objetos em imagens ou sons.
+Bioinformática: Para analisar dados genéticos.
+Finanças: Para prever o valor de ações.
                 """,
                 unsafe_allow_html=True,
             )
