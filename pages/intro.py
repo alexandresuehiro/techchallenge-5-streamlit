@@ -40,11 +40,11 @@ with st.container():
     """
     )
 
-    tab0, tab1, tab3, tab4, tab5, tab6 = st.tabs( #tab7, tab8  #tab2, 
+    tab0, tab3, tab4, tab5, tab6 = st.tabs( #tab1, tab7, tab8  #tab2, 
     
         tabs=[
             "Educação no Brasil",
-            "Passos Mágicos",
+#            "Passos Mágicos",
 #            "Educação em Embu-Guaçú",
             "Regressão Linear",
             "Regressão Logística",
@@ -54,7 +54,7 @@ with st.container():
     )
 
     EducacaoBrasil(tab0)
-    PassosMagicos(tab1)
+#    PassosMagicos(tab1)
 #    EducacaoLocal(tab2)
     expLinearRegression(tab3)
     expLogisticRegression(tab4)
