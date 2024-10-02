@@ -16,7 +16,7 @@ class PerfilEstudantes(TabInterface):
                         ["Ingressante",	"133",	"235",	"398"],
                         ["Total",	"725",	"688",	"862"]
                     ]
-            data1 = pd.Dataframe(tabela1)
+            data1 = pd.DataFrame(tabela1)
             data1 = data1.transpose()
             st.markdown(
                 """
