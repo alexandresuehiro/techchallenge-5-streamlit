@@ -3,7 +3,7 @@ from tabs.tab import TabInterface
 import pandas as pd
 
 
-data1 = pd.read_csv("data/01_ingressantes_veteranos.csv", header=1, sep=";")
+data1 = pd.read_csv("data/01_ingressantes_veteranos.csv", header=0, sep=";")
 data2 = pd.read_csv("data/02_ano_ingresso.csv", header=0, sep=";")
 data3 = pd.read_csv("data/03_instituicao_ensino.csv", header=0, sep=";")
 data4 = pd.read_csv("data/04_perfil_fase.csv", header=0, sep=";")

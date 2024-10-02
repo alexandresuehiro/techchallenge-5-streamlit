@@ -3,9 +3,9 @@ from tabs.tab import TabInterface
 
 import pandas as pd
 
-data35 = pd.read_csv("data/35_ponto_de_Virada_2022.csv", header=1, sep=";")
-data36 = pd.read_csv("data/36_cenario_ametista_topazio_topazio.csv", header=1, sep=";")
-data37 = pd.read_csv("data/37_cenario_topazio_topazio_topazio.csv", header=1, sep=";")
+data35 = pd.read_csv("data/35_ponto_de_Virada_2022.csv", header=0, sep=";")
+data36 = pd.read_csv("data/36_cenario_ametista_topazio_topazio.csv", header=0, sep=";")
+data37 = pd.read_csv("data/37_cenario_topazio_topazio_topazio.csv", header=0, sep=";")
 
 class AnalisePontoVirada2022Sim(TabInterface):
     def __init__(self, tab):
