@@ -57,7 +57,7 @@ class expLinearRegression(TabInterface):
                     * Interpretabilidade: Quando a interpretação dos coeficientes é importante.
                     * Dados simples: Quando os dados são relativamente simples e sem muitos outliers.
                 """),
-            st.subheader(":blue[Em resumo...", divider="blue")
+            st.subheader(":blue[Em resumo...]", divider="blue")
             st.markdown(
                 """  
                     A regressão linear é uma ferramenta poderosa e fácil de usar para modelar relações lineares entre variáveis. No entanto, é importante lembrar que nem todos os problemas podem ser resolvidos com uma simples reta. Em muitos casos, modelos mais complexos, como a Floresta Aleatória, podem ser mais adequados.
