@@ -15,7 +15,6 @@ class EducacaoBrasil(TabInterface):
                 """
                     A qualidade da educação brasileira é um tema complexo e multifacetado, com avanços e desafios que se entrelaçam. Embora tenhamos visto progressos em alguns indicadores, como a expansão do acesso ao ensino fundamental, ainda há muito a ser feito para garantir uma educação de qualidade para todos os brasileiros.
                                     """)
-
             st.subheader(":blue[Principais Desafios]", divider="blue")
             st.markdown(
                 """
