@@ -26,18 +26,18 @@ with st.container():
         Nesta introdução, são descritos alguns tópicos importantes para entender:
          * Panorama da Educação Brasileira
          * Sobre a Passos Mágicos:
-         <ol>
-         <li>Nossa História</li>
-         <li>O que fazemos</li>
-         <li>Missão e Valores</li>
-         </ol>
+            <ol>
+                <li>Nossa História</li>
+                <li>O que fazemos</li>
+                <li>Missão e Valores</li>
+            </ol>
          * os modelos de Machine Learning usados: 
-         <ol>
-         <li>Regressão Linear (Linear Regression)</li>
-         <li>Regressão Logística (Logistic Regression)</li>
-         <li>Árvores de Decisão (Decision Trees)</li>
-         <li>Florestas Aleatórias (Random Forest)</li>
-         </ol>
+            <ol>
+                <li>Regressão Linear (Linear Regression)</li>
+                <li>Regressão Logística (Logistic Regression)</li>
+                <li>Árvores de Decisão (Decision Trees)</li>
+                <li>Florestas Aleatórias (Random Forest)</li>
+            </ol>
     """
     )
 
