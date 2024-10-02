@@ -26,8 +26,7 @@ with st.container():
             st.markdown(
                 """
                     Oferecemos um programa de educação de qualidade para crianças e jovens do município de Embu-Guaçu.
-                """, 
-            unsafe_allow_html=True),
+                """)
             
             col1, col2, col3, col4 = st.columns(4)
             with col1:
