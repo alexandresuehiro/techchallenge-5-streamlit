@@ -2,7 +2,7 @@ import streamlit as st
 from tabs.tab import TabInterface
 
 
-class AnaliseIndicadoresPorPedra(TabInterface):
+class SobreIPS(TabInterface):
     def __init__(self, tab):
         self.tab = tab
         self.render()
