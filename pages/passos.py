@@ -71,7 +71,13 @@ with st.container():
                     Nossa visão é viver em um Brasil no qual todas as crianças e jovens têm iguais oportunidades para realizarem seus sonhos e são agentes transformadores de suas próprias vidas.
 
                     
-                """)
+                """),
+              
+            st.divider()
+
+            with st.container():
+                _, col0, _, col1, _ = st.columns([2, 2, 2, 2, 2])
+
                 
 #            st.divider()
 #
