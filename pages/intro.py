@@ -18,18 +18,20 @@ st.set_page_config(
 )
 output_layout()
 
+#         * Sobre a Passos Mágicos:
+#            1. Nossa História
+#            2. O que fazemos
+#            3. Missão e Valores
+
+            
+
 with st.container():
     st.header(f":orange[{TITULO_INTRODUCAO}]")
     st.markdown(
         """
         Nesta introdução, são descritos alguns tópicos importantes para entender:
          * Panorama da Educação Brasileira
-         * Sobre a Passos Mágicos:
-            1. Nossa História
-            2. O que fazemos
-            3. Missão e Valores
 
-            
          * Os modelos de Machine Learning usados: 
             1. Regressão Linear (Linear Regression)
             2. Regressão Logística (Logistic Regression)
@@ -50,7 +52,7 @@ with st.container():
             "Random Forest"
         ]
     )
-    
+
     EducacaoBrasil(tab0)
     PassosMagicos(tab1)
 #    EducacaoLocal(tab2)
