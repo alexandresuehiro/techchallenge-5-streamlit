@@ -86,6 +86,12 @@ class SobreIndicadoresAvaliacao(TabInterface):
                 chamarIPV = SobreIPV()
                 st.write(chamarIPV)
 
+            
+
+            st.divider()
+
+            with st.container():
+                _, col0, _, col1, _ = st.columns([2, 2, 2, 2, 2])
 
         # tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(
         #     tabs=[
