@@ -16,11 +16,10 @@ with st.container():
         DISCUSSÃO SOBRE AS ANÁLISES REALIZADAS
 
         * **Quais indicadores cooperaram mais para o atual cenário?**
-        * **Seria algum fator psicológico ou acadêmico muito relevante? Algum fator de engajamento?**
         Pelas análises realizadas, podemos dizer que o Indicador Psicopedagógico (IPP) e o Indicador de Engajamento (IEG) tiveram maior influência do que os outros indicadores no INDE. Se olharmos o mapa de correlação, uma mudança nesses dois pontos pode afetar justamente a avaliação do Indicador do Ponto de Virada (IPV). Como o fator de saúde mental e a realização de atividades afetam diretamente a capacidade de aprendizado, isso pode ter influenciado o Indicador de Desempenho Acadêmico e, por consequência, o Indicador de Ponto de Virada.
         
-        O que sabemos por pesquisa e notícias referentes ao período da Pandemia é que o aprendizado foi afetado pela política de isolamento e ausência de aulas presenciais. Por conta desse isolamento, o convívio social e as atividades em grupo foram afetadas e isso afetou diretamente o desenvolvimento e o aprendizado. Para recuperar desse cenário, é muito provável que muitas atividades foram propostas para os estudantes como forma de manter a saúde mental. Ou seja, engajar em atividades pode ser um ponto inicial muito bom para que os outros indicadores melhorem.
-        Sobre o perfil daqueles que apresentaram Ponto de Virada igual a “sim” em 2022, podemos notar que há certas oscilações entre os indicadores, com um apresentando queda e o outro compensando essa queda, como se fosse uma mudança de foco nos períodos, como uma revisão de prioridade.
+        * **Seria algum fator psicológico ou acadêmico muito relevante? Algum fator de engajamento?**
+        O que sabemos por pesquisa e notícias referentes ao período da Pandemia é que o aprendizado foi afetado pela política de isolamento e ausência de aulas presenciais. Por conta desse isolamento, o convívio social e as atividades em grupo foram afetadas e isso afetou diretamente o desenvolvimento e o aprendizado. Para recuperar desse cenário, é muito provável que muitas atividades foram propostas para os estudantes como forma de manter a saúde mental. Ou seja, engajar em atividades pode ser um ponto inicial muito bom para que os outros indicadores melhorem. Sobre o perfil daqueles que apresentaram Ponto de Virada igual a “sim” em 2022, podemos notar que há certas oscilações entre os indicadores, com um apresentando queda e o outro compensando essa queda, como se fosse uma mudança de foco nos períodos, como uma revisão de prioridade.
 
 
         * **O que poderia ser feito para melhorar isso?**
