@@ -55,21 +55,28 @@ class SobreIndicadoresAvaliacao(TabInterface):
         # Se você tiver muitas seções, pode utilizar um loop for para simplificar:
         for i in range(1, 9):
             with st.expander(f"INDE"):
-                SobreINDE()
+                chamarINDE = SobreINDE()
+                st.write(chamarINDE)
             with st.expander(f"IAA"):
-                SobreIAA()
+                chamarIAA = SobreIAA()
             with st.expander(f"IAN"):
-                SobreIAN()
+                chamarIAN = SobreIAN()
+                st.write(chamarIAN)
             with st.expander(f"IDA"):
-                SobreIDA()
+                chamarIDA = SobreIDA()
+                st.write(chamarIDA)
             with st.expander(f"IEG"):
-                SobreIEG()
+                chamarIEG = SobreIEG()
+                st.write(chamarIEG)
             with st.expander(f"IPS"):
-                SobreIPS()
+                chamarIPS = SobreIPS()
+                st.write(chamarIPS)
             with st.expander(f"IPP"):
-                SobreIPP()
+                chamarIPP = SobreIPP()
+                st.write(chamarIPP)
             with st.expander(f"IPV"):
-                SobreIPV()
+                chamarIPV = SobreIPV()
+                st.write(chamarIPV)
 
 
         # tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(
