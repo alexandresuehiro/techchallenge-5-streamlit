@@ -3,15 +3,15 @@ from tabs.tab import TabInterface
 import pandas as pd
 
 
-data13 = pd.read_csv("data/13_transicao_pedras.csv", header=1, sep=";")
-data14 = pd.read_csv("data/14_ipp_transicao_pedras.csv", header=1, sep=";")
-data14a = pd.read_csv("data/14a_ipp_transicao_pedras_ametista_ametista_ametista.csv", header=1, sep=";")
-data15 = pd.read_csv("data/15_ipp_transicao_pedras_ametista_ametista_agata.csv", header=1, sep=";")
-data16 = pd.read_csv("data/16_ipp_transicao_pedras_topazio_topazio_topazio.csv", header=1, sep=";")
-data17 = pd.read_csv("data/17_ipp_transicao_topazio_ametista_ametista.csv", header=1, sep=";")
-data18 = pd.read_csv("data/18_ipp_transicao_ametista_agata_agata.csv", header=1, sep=";")
-data19 = pd.read_csv("data/19_ipp_transicao_ametista_agata_ametista.csv", header=1, sep=";")
-data20 = pd.read_csv("data/20_ipp_transicao_ametista_topazio_topazio.csv", header=1, sep=";")
+data13 = pd.read_csv("data/13_transicao_pedras.csv", header=0, sep=";")
+data14 = pd.read_csv("data/14_ipp_transicao_pedras.csv", header=0, sep=";")
+data14a = pd.read_csv("data/14a_ipp_transicao_pedras_ametista_ametista_ametista.csv", header=0, sep=";")
+data15 = pd.read_csv("data/15_ipp_transicao_pedras_ametista_ametista_agata.csv", header=0, sep=";")
+data16 = pd.read_csv("data/16_ipp_transicao_pedras_topazio_topazio_topazio.csv", header=0, sep=";")
+data17 = pd.read_csv("data/17_ipp_transicao_topazio_ametista_ametista.csv", header=0, sep=";")
+data18 = pd.read_csv("data/18_ipp_transicao_ametista_agata_agata.csv", header=0, sep=";")
+data19 = pd.read_csv("data/19_ipp_transicao_ametista_agata_ametista.csv", header=0, sep=";")
+data20 = pd.read_csv("data/20_ipp_transicao_ametista_topazio_topazio.csv", header=0, sep=";")
                      
 
 class AnaliseTransicaoPedras(TabInterface):
