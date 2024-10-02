@@ -1,6 +1,10 @@
 import streamlit as st
 from tabs.tab import TabInterface
+import pandas as pd
 
+data35 = pd.read_csv("data/35_ponto_de_Virada_2022.csv", header=0, sep=";")
+data36 = pd.read_csv("data/36_cenario_ametista_topazio_topazio.csv", header=0, sep=";")
+data37 = pd.read_csv("data/37_cenario_topazio_topazio_topazio.csv", header=0, sep=";")
 
 class PontoVirada2022(TabInterface):
     def __init__(self, tab):
@@ -9,14 +13,16 @@ class PontoVirada2022(TabInterface):
 
     def render(self):
         with self.tab:
-            st.subheader(":blue[Regressão Linear (Linear Regression)]", divider="blue")
+            st.header(":blue[Ponto de Virada – 2022]", divider="blue")
             st.markdown(
                 """
-                    Uma média móvel integrada autoregressiva, ou ARIMA, é um modelo de análise estatística que usa dados de séries temporais para compreender melhor o conjunto de dados ou para prever tendências futuras.
-                    Um modelo estatístico é autoregressivo se prever valores futuros com base em valores passados. Por exemplo, um modelo ARIMA pode procurar prever os preços futuros de uma ação com base no seu desempenho passado ou prever os lucros de uma empresa com base em períodos passados.
-                """,
-                unsafe_allow_html=True,
-            )
+						Agora vamos analisar um cenário que demonstra uma possível rota de sucesso para os estudantes, que seria o Ponto de Virada = Sim em 2022.
+						Para isso, vamos considerar que o estudante está na associação regularmente no período 2020 a 2022.
+
+                """)
+            st.dataframe(data35)
+
+            
 
             st.divider()
 
