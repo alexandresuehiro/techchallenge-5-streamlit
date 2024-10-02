@@ -13,7 +13,7 @@ from tabs.indicadores.IPS_tab import SobreIPS
 from tabs.indicadores.IPP_tab import SobreIPP
 from tabs.indicadores.IPV_tab import SobreIPV
 from tabs.indicadores.INDE_tab import SobreINDE
-
+from tabs.tab import TabInterface
 
 
 st.set_page_config(
@@ -23,48 +23,53 @@ st.set_page_config(
 output_layout()
 
 
-with st.container():
-    st.header(f":orange[{TITULO_INDICADORES}]")
+class SobreIndicadoresAvaliacao(TabInterface):
+    def __init__(self, tab):
+        self.tab = tab
+        self.render()
 
-    st.markdown(
+    def render(self):
+        st.header(f":orange[{TITULO_INDICADORES}]")
+
+        st.markdown(
+            """
+            Nesta sessão de análise, detalharemos sobre os Indicadores de Avaliação que compõem o INDE:
+
+            Dimensão acadêmica: 
+            *	IAN: Indicador de Adequação de Nível (Indicador de Avaliação)
+            *	IDA: Indicador de Desempenho Acadêmico (Indicador de Avaliação)
+            *   IEG: Indicador de Engajamento (Indicador de Avaliação)
+
+            
+            Dimensão psicossocial:
+            *   IAA: Indicador de Autoavaliação (Indicador de Avaliação)
+            * IPS: Indicador Psicossocial (Indicador de Conselho)
+
+            Dimensão psicopedagógica:
+            *   IPP: Indicador Psicopedagógico (Indicador de Conselho)
+            *   IPV: Indicador de Ponto de Virada (Indicador de Conselho)
         """
-        Nesta sessão de análise, detalharemos sobre os Indicadores de Avaliação que compõem o INDE:
+        )
 
-        Dimensão acadêmica: 
-        *	IAN: Indicador de Adequação de Nível (Indicador de Avaliação)
-        *	IDA: Indicador de Desempenho Acadêmico (Indicador de Avaliação)
-        *   IEG: Indicador de Engajamento (Indicador de Avaliação)
+        tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(
+            tabs=[
+                "INDE",
+                "IAA",
+                "IAN",
+                "IDA",
+                "IEG",
+                "IPS",
+                "IPP",
+                "IPV"
+            ]
+        )
 
-        
-        Dimensão psicossocial:
-        *   IAA: Indicador de Autoavaliação (Indicador de Avaliação)
-        * IPS: Indicador Psicossocial (Indicador de Conselho)
-
-        Dimensão psicopedagógica:
-        *   IPP: Indicador Psicopedagógico (Indicador de Conselho)
-        *   IPV: Indicador de Ponto de Virada (Indicador de Conselho)
-    """
-    )
-
-    tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(
-        tabs=[
-            "INDE",
-            "IAA",
-            "IAN",
-            "IDA",
-            "IEG",
-            "IPS",
-            "IPP",
-            "IPV"
-        ]
-    )
-
-    SobreINDE(tab0)
-    SobreIAA(tab1)
-    SobreIAN(tab2)
-    SobreIDA(tab3)
-    SobreIEG(tab4)
-    SobreIPS(tab5)
-    SobreIPP(tab6)
-    SobreIPV(tab7)
- 
+        SobreINDE(tab0)
+        SobreIAA(tab1)
+        SobreIAN(tab2)
+        SobreIDA(tab3)
+        SobreIEG(tab4)
+        SobreIPS(tab5)
+        SobreIPP(tab6)
+        SobreIPV(tab7)
+    
