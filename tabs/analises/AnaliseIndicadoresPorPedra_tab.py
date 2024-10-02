@@ -4,13 +4,13 @@ import pandas as pd
 
 
 
-data6 = pd.read_csv("data/06_ian_pedras.csv", header=1, sep=";")
-data7 = pd.read_csv("data/07_ida_pedras.csv", header=1, sep=";")
-data8 = pd.read_csv("data/08_ieg_pedras.csv", header=1, sep=";")
-data9 = pd.read_csv("data/09_iaa_pedras.csv", header=1, sep=";")
-data10 = pd.read_csv("data/10_ips_pedras.csv", header=1, sep=";")
-data11 = pd.read_csv("data/11_ipp_pedras.csv", header=1, sep=";")
-data12 = pd.read_csv("data/12_ipv_pedras.csv", header=1, sep=";")
+data6 = pd.read_csv("data/06_ian_pedras.csv", header=0, sep=";")
+data7 = pd.read_csv("data/07_ida_pedras.csv", header=0, sep=";")
+data8 = pd.read_csv("data/08_ieg_pedras.csv", header=0, sep=";")
+data9 = pd.read_csv("data/09_iaa_pedras.csv", header=0, sep=";")
+data10 = pd.read_csv("data/10_ips_pedras.csv", header=0, sep=";")
+data11 = pd.read_csv("data/11_ipp_pedras.csv", header=0, sep=";")
+data12 = pd.read_csv("data/12_ipv_pedras.csv", header=0, sep=";")
 
 
 class AnaliseIndicadoresPorPedra(TabInterface):
