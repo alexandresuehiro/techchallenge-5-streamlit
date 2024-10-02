@@ -28,7 +28,7 @@ with st.container():
             1. Nossa História
             2. O que fazemos
             3. Missão e Valores
-
+            \n\n
          * os modelos de Machine Learning usados: 
             1. Regressão Linear (Linear Regression)
             2. Regressão Logística (Logistic Regression)
