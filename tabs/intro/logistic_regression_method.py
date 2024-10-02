@@ -9,16 +9,17 @@ class expLogisticRegression(TabInterface):
 
     def render(self):
         with self.tab:
-            st.header(f":orange[Regressão Linear (Linear Regression)]")
-            st.subheader(":blue[Regressão Logística: Uma Explicação Intuitiva]", divider="blue")
+            st.header(f":orange[Regressão Logística (Logistic Regression)]")
+            st.subheader(":blue[Uma Explicação Intuitiva]", divider="blue")
             st.markdown(
                 """
                     Imagine um modelo que tenta prever se um e-mail é spam ou não. Ao invés de prever um valor numérico contínuo (como o preço de uma casa), aqui queremos prever uma categoria (spam ou não spam). A regressão logística é ideal para esse tipo de problema.
                     
                     A regressão logística é um tipo de modelo estatístico utilizado para modelar a probabilidade de uma determinada classe ou evento ocorrer. Ao contrário da regressão linear, que prevê um valor numérico contínuo, a regressão logística prevê a probabilidade de um evento pertencer a uma determinada categoria.
-
-                    Uma analogia:
-
+                """),
+            st.subheader(":blue[Uma analogia]", divider="blue")
+            st.markdown(
+                """  
                     Imagine que você está tentando prever se um aluno será aprovado ou reprovado em um exame, baseado em sua nota. A regressão logística criaria uma curva em "S" (conhecida como curva logística) que se aproxima de 0 (probabilidade de reprovação) ou 1 (probabilidade de aprovação) à medida que a nota aumenta.
                 """),
             st.subheader(":blue[Como funciona?]", divider="blue")
