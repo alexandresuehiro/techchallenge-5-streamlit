@@ -19,6 +19,8 @@ with st.container():
 
         Para essa situação, chegar à faculdade? Um curso técnico? Concluir o Ensino Médio e ter um projeto de vida?
         Por isso deixamos em aberto o que podemos considerar como marca de sucesso ao avaliar os jovens...
+
+        Importante notar que estamos considerando os alunos que possuem três anos consecutivos na Passos Mágicos para realizar a avaliação.
     """
     )
 

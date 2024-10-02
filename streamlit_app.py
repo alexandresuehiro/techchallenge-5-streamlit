@@ -23,7 +23,15 @@ st.subheader(":blue[Objetivo]", divider="blue")
 st.markdown(
     """
     Este trabalho tem por finalidade analisar o desenvolvimento dos jovens da ONG Passos Mágicos, que recebem ajuda psicopedagógica, atividades e bolsas de estudo. Propomos a analisar termos e fontes de dados para implementar processos de Machine Learning que possam checar cenários de sucesso ou indicativos de um caminho. Com estes resultados, vamos exibi-los via Streamlit.
-"""
+
+    Considerando as várias perguntas que foram feitas durante algumas lives com professores e o senhor Dimitri da Passos Mágicos, teremos como foco responder e analisar alguns cenários:
+    
+    O que precisamos analisar: 
+    * Quais indicadores cooperaram mais para o atual cenário?
+    * Seria algum fator psicológico ou acadêmico muito relevante? Algum fator de engajamento?
+    * O que poderia ser feito para melhorar isso? 
+    * O que poderia ser feito para adequar comparações entre a Passos Mágicos e outros índices públicos de educação?
+    """
 )
 
 st.subheader(

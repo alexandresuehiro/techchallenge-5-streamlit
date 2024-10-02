@@ -1,24 +1,70 @@
 import streamlit as st
-from tabs.tab import TabInterface
+import pandas as pd
+import plotly.figure_factory as ff
+import plotly.graph_objs as go
+from utils.constantes import TITULO_INDICADORES, TITULO_PRINCIPAL
+from utils.layout import output_layout, format_number
+
+from tabs.indicadores.IAN_tab import SobreIAN
+from tabs.indicadores.IDA_tab import SobreIDA
+from tabs.indicadores.IEG_tab import SobreIEG
+from tabs.indicadores.IAA_tab import SobreIAA
+from tabs.indicadores.IPS_tab import SobreIPS
+from tabs.indicadores.IPP_tab import SobreIPP
+from tabs.indicadores.IPV_tab import SobreIPV
+from tabs.indicadores.INDE_tab import SobreINDE
 
 
-class SobreIndicadoresAvaliacao(TabInterface):
-    def __init__(self, tab):
-        self.tab = tab
-        self.render()
 
-    def render(self):
-        with self.tab:
-            st.subheader(":blue[Regressão Linear (Linear Regression)]", divider="blue")
-            st.markdown(
-                """
-                    Uma média móvel integrada autoregressiva, ou ARIMA, é um modelo de análise estatística que usa dados de séries temporais para compreender melhor o conjunto de dados ou para prever tendências futuras.
-                    Um modelo estatístico é autoregressivo se prever valores futuros com base em valores passados. Por exemplo, um modelo ARIMA pode procurar prever os preços futuros de uma ação com base no seu desempenho passado ou prever os lucros de uma empresa com base em períodos passados.
-                """,
-                unsafe_allow_html=True,
-            )
+st.set_page_config(
+    page_title=f"{TITULO_INDICADORES} | {TITULO_PRINCIPAL}",
+    layout="wide",
+)
+output_layout()
 
-            st.divider()
 
-            with st.container():
-                _, col0, _, col1, _ = st.columns([2, 2, 2, 2, 2])
+with st.container():
+    st.header(f":orange[{TITULO_INDICADORES}]")
+
+    st.markdown(
+        """
+        Nesta sessão de análise, detalharemos sobre os Indicadores de Avaliação que compõem o INDE:
+
+        Dimensão acadêmica: 
+        *	IAN: Indicador de Adequação de Nível (Indicador de Avaliação)
+        *	IDA: Indicador de Desempenho Acadêmico (Indicador de Avaliação)
+        *   IEG: Indicador de Engajamento (Indicador de Avaliação)
+
+        
+        Dimensão psicossocial:
+        *   IAA: Indicador de Autoavaliação (Indicador de Avaliação)
+        * IPS: Indicador Psicossocial (Indicador de Conselho)
+
+        Dimensão psicopedagógica:
+        *   IPP: Indicador Psicopedagógico (Indicador de Conselho)
+        *   IPV: Indicador de Ponto de Virada (Indicador de Conselho)
+    """
+    )
+
+    tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(
+        tabs=[
+            "INDE",
+            "IAA",
+            "IAN",
+            "IDA",
+            "IEG",
+            "IPS",
+            "IPP",
+            "IPV"
+        ]
+    )
+
+    SobreINDE(tab0)
+    SobreIAA(tab1)
+    SobreIAN(tab2)
+    SobreIDA(tab3)
+    SobreIEG(tab4)
+    SobreIPS(tab5)
+    SobreIPP(tab6)
+    SobreIPV(tab7)
+ 
