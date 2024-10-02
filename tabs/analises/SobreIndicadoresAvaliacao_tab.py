@@ -16,11 +16,11 @@ from tabs.indicadores.INDE_tab import SobreINDE
 from tabs.tab import TabInterface
 
 
-st.set_page_config(
-    page_title=f"{TITULO_INDICADORES} | {TITULO_PRINCIPAL}",
-    layout="wide",
-)
-output_layout()
+# st.set_page_config(
+#     page_title=f"{TITULO_INDICADORES} | {TITULO_PRINCIPAL}",
+#     layout="wide",
+# )
+# output_layout()
 
 
 class SobreIndicadoresAvaliacao(TabInterface):
