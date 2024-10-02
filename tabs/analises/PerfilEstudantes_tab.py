@@ -16,19 +16,16 @@ class PerfilEstudantes(TabInterface):
 
     def render(self):
         with self.tab:
-            st.subheader(":blue[Perfil dos Estudantes]", divider="blue")
-
+            st.header(":blue[Perfil dos Estudantes]", divider="blue")
+            st.subheader('Ingressantes e Veteranos') 
             st.markdown(
                 """
-                    Ingressantes e Veteranos
-                    
                     De acordo com as informações obtidas da base de dados, havia cerca de 725 estudantes ao longo de 2020, 685 em 2021 e 862 em 2022:
                 """)
             st.dataframe(data1)
+            st.subheader('Ano de Ingresso') 
             st.markdown(
                 """
-                        Ano de Ingresso
-
                         Ainda analisando o tempo de início dos estudantes, temos o quadro abaixo:
                 """)
             st.dataframe(data2)
@@ -36,12 +33,10 @@ class PerfilEstudantes(TabInterface):
             st.markdown(
                 """
                         Houve um acréscimo considerável em 2022, com o ingresso de 398 estudantes na associação (aumento de 200% em relação a 2020).
-                """)                        
+                """) 
+            st.subheader('Escola Pública, Bolsistas e Universitários')                       
             st.markdown(
                 """     
-                        Escola Pública, Bolsistas e Universitários
-
-
                         Considerando todos aqueles do Ensino Fundamental e do Ensino Médio como alunos de Escola Pública ou Bolsistas, temos:
 
                 """)    
@@ -51,18 +46,15 @@ class PerfilEstudantes(TabInterface):
                         Quanto ao perfil estudantil, temos a seguinte composição:
                 """)
             st.dataframe(data3)
+            st.subheader('Perfil por Fase')
             st.markdown(
                 """
-                        Perfil por Fase
-                        
                         Quanto ao perfil por fase, temos a seguinte composição:
                 """)
             st.dataframe(data4)
             st.image('assets/imgs/02_qtde_estudantes_fase.png')
-            st.markdown(
-                """
-Perfil por Pedra / INDE
-                """)
+            st.subheader('Perfil por Pedra / INDE')
+
             st.dataframe(data5)
             st.image('assets/imgs/quantidade_perfis_pedras_2020_2022.png')
             st.markdown(
