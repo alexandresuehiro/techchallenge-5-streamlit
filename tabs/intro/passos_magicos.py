@@ -9,10 +9,10 @@ class PassosMagicos(TabInterface):
 
     def render(self):
         with self.tab:
-            st.subheader(":blue[Passos Mágicos]", divider="blue")
+            st.header(f":orange[Passos Mágicos]")
+            st.subheader(":blue[Nossa história]", divider="blue")
             st.markdown(
                 """
-                    Nossa história
 A Associação Passos Mágicos tem uma trajetória de 30 anos de atuação, trabalhando na transformação da vida de crianças e jovens de baixa renda os levando a melhores oportunidades de vida.
 
 A transformação, idealizada por Michelle Flues e Dimetri Ivanoff, começou em 1992, atuando dentro de orfanatos, no município de Embu-Guaçu.
@@ -60,7 +60,17 @@ Em 2016, depois de anos de atuação, decidem ampliar o programa para que mais j
                     Conheça nossas empresas parceiras e apoiadoras que nos ajudam a dar vida aos nossos projetos de transformação.
 
                     https://passosmagicos.org.br/parceiros-e-apoiadores/
-                """)                   
+                """)     
+            st.subheader(":blue[Missão e Valores]", divider="blue")
+            st.markdown(
+                """
+                    Nossa missão é transformar a vida de jovens e crianças, oferecendo ferramentas para levá-los a melhores oportunidades de vida.
+
+                    Nossa visão é viver em um Brasil no qual todas as crianças e jovens têm iguais oportunidades para realizarem seus sonhos e são agentes transformadores de suas próprias vidas.
+
+                    
+                """),
+              
             st.divider()
 
             with st.container():

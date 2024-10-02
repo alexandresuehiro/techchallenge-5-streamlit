@@ -30,7 +30,7 @@ with st.container():
             3. Missão e Valores
 
             
-         * os modelos de Machine Learning usados: 
+         * Os modelos de Machine Learning usados: 
             1. Regressão Linear (Linear Regression)
             2. Regressão Logística (Logistic Regression)
             3. Árvores de Decisão (Decision Trees)
@@ -41,8 +41,8 @@ with st.container():
     tab0, tab1, tab3, tab4, tab5, tab6 = st.tabs( #tab7, tab8  #tab2, 
     
         tabs=[
-            "Passos Mágicos",
             "Educação no Brasil",
+            "Passos Mágicos",
 #            "Educação em Embu-Guaçú",
             "Regressão Linear",
             "Regressão Logística",
@@ -50,9 +50,9 @@ with st.container():
             "Random Forest"
         ]
     )
-
-    PassosMagicos(tab0)
-    EducacaoBrasil(tab1)
+    
+    EducacaoBrasil(tab0)
+    PassosMagicos(tab1)
 #    EducacaoLocal(tab2)
     expLinearRegression(tab3)
     expLogisticRegression(tab4)
