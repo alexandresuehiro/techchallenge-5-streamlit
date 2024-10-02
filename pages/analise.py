@@ -28,12 +28,13 @@ with st.container():
     st.markdown(
         """
         Nesta sessão de análise, detalharemos um pouco sobre: 
-            1. Perfil dos Estudantes: análise de idade, tipo de escola, valor de INDE etc
-            2. Análise dos Indicadores por Pedra: um escrutínio sobre a relevância de cada Indicador e o peso sobre o perfil das pedras
-            3. Mapa de Correlação de Indicadores: mostra como os indicadores têm correlação, ou seja, influencia um ao outro
-            4. Análise de Transição de Pedras: usar a mudança de pedras dos jovens para analisar como comportaram ao longo dos anos
-            5. Ponto de Virada 2022
-            6. Análise do Ponto de Virada 2022 = Sim
+        
+            1.  Perfil dos Estudantes: análise de idade, tipo de escola, valor de INDE etc
+            2.  Análise dos Indicadores por Pedra: um escrutínio sobre a relevância de cada Indicador e o peso sobre o perfil das pedras
+            3.  Mapa de Correlação de Indicadores: mostra como os indicadores têm correlação, ou seja, influencia um ao outro
+            4.  Análise de Transição de Pedras: usar a mudança de pedras dos jovens para analisar como comportaram ao longo dos anos
+            5.  Ponto de Virada 2022
+            6.  Análise do Ponto de Virada 2022 = Sim
     """
     )
 
