@@ -4,10 +4,10 @@ import pandas as pd
 
 
 data1 = pd.read_csv("data/01_ingressantes_veteranos.csv", header=1, sep=";")
-data2 = pd.read_csv("data/02_ano_ingresso.csv", header=1, sep=";")
-data3 = pd.read_csv("data/03_instituicao_ensino.csv", header=1, sep=";")
-data4 = pd.read_csv("data/04_perfil_fase.csv", header=1, sep=";")
-data5 = pd.read_csv("data/05_perfil_pedra_INDE.csv", header=1, sep=";")
+data2 = pd.read_csv("data/02_ano_ingresso.csv", header=0, sep=";")
+data3 = pd.read_csv("data/03_instituicao_ensino.csv", header=0, sep=";")
+data4 = pd.read_csv("data/04_perfil_fase.csv", header=0, sep=";")
+data5 = pd.read_csv("data/05_perfil_pedra_INDE.csv", header=0, sep=";")
 
 class PerfilEstudantes(TabInterface):
     def __init__(self, tab):
