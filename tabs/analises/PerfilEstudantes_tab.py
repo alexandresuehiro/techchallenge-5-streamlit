@@ -11,7 +11,6 @@ class PerfilEstudantes(TabInterface):
         with self.tab:
             st.subheader(":blue[Perfil dos Estudantes]", divider="blue")
             data1 = pd.read_csv("data/01_ingressantes_veteranos.csv", header=1, sep=";")
-            data1 = data1.transpose()
             st.markdown(
                 """
                     Ingressantes e Veteranos
@@ -25,6 +24,7 @@ class PerfilEstudantes(TabInterface):
             st.markdown(
                 """
                         Ano de Ingresso
+
                         Ainda analisando o tempo de início dos estudantes, temos o quadro abaixo:
                 """)
             st.dataframe(data2)
@@ -34,8 +34,18 @@ class PerfilEstudantes(TabInterface):
             st.markdown(
                 """
                         Houve um acréscimo considerável em 2022, com o ingresso de 398 estudantes na associação (aumento de 200% em relação a 2020).
+                """)                        
+            st.markdown(
+                """     
                         Escola Pública, Bolsistas e Universitários
+
+
                         Considerando todos aqueles do Ensino Fundamental e do Ensino Médio como alunos de Escola Pública ou Bolsistas, temos:
+
+                """)    
+                                
+            st.markdown(
+                """     
                         Quanto ao perfil estudantil, temos a seguinte composição:
                 """)
             st.dataframe(data3)
