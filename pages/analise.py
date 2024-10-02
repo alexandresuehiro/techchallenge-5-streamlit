@@ -23,20 +23,23 @@ output_layout()
 
 with st.container():
     st.header(f":orange[{TITULO_ANALISE_EXPLORATORIA}]")
+#            1 - Sobre Indicadores de Avaliação: indicadores internos sobre o perfil de cada jovem
 
     st.markdown(
         """
         Nesta sessão de análise, detalharemos um pouco sobre: 
-            1 - Sobre Indicadores de Avaliação: indicadores internos sobre o perfil de cada jovem
-            2 - Perfil dos Estudantes: análise de idade, tipo de escola, valor de INDE etc
-            3 - Análise dos Indicadores por Pedra: um escrutínio sobre a relevância de cada Indicador e o peso sobre o perfil das pedras
-            4 - 
+            1 - Perfil dos Estudantes: análise de idade, tipo de escola, valor de INDE etc
+            2 - Análise dos Indicadores por Pedra: um escrutínio sobre a relevância de cada Indicador e o peso sobre o perfil das pedras
+            3 - Mapa de Correlação de Indicadores: mostra como os indicadores têm correlação, ou seja, influencia um ao outro
+            4 - Análise de Transição de Pedras: usar a mudança de pedras dos jovens para analisar como comportaram ao longo dos anos
+            5 - Ponto de Virada 2022
+            6 - Análise do Ponto de Virada 2022 = Sim
     """
     )
 
-    tab0, tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(
         tabs=[
-            "Sobre Indicadores de Avaliação",
+#            "Sobre Indicadores de Avaliação",
             "Perfil dos Estudantes",
             "Análise dos Indicadores por Pedra",
             "Mapa de Correlação de Indicadores",
@@ -46,7 +49,7 @@ with st.container():
         ]
     )
 
-    SobreIndicadoresAvaliacao(tab0)
+
     PerfilEstudantes(tab1)
     AnaliseIndicadoresPorPedra(tab2)
     MapaCorrelacaoIndicadores(tab3)

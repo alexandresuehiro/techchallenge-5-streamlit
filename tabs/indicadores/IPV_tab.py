@@ -9,7 +9,7 @@ class SobreIPV(TabInterface):
 
     def render(self):
         with self.tab:
-            st.subheader(":blue[IPV: Indicador de Ponto de Virada]", divider="blue")
+            st.subheader(":blue[IPV - Indicador de Ponto de Virada]", divider="blue")
             st.markdown(
                 """
                     Avaliação da equipe de educadores e psicopedagogos a respeito do desenvolvimento do aluno das aptidões necessárias para iniciar a transformação da sua vida por meio da Educação, avaliando a integração do aluno à Associação, o seu desenvolvimento emocional, e o seu potencial acadêmico.
