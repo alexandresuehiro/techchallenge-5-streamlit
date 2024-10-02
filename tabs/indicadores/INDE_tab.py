@@ -2,13 +2,13 @@ import streamlit as st
 from tabs.tab import TabInterface
 
 
-class SobreINDE(TabInterface):
-    def __init__(self, tab):
-        self.tab = tab
-        self.render()
+class SobreINDE(): #TabInterface):
+    # def __init__(self, tab):
+    #     self.tab = tab
+    #     self.render()
 
-    def render(self):
-        with self.tab:
+    # def render(self):
+    #     with self.tab:
             st.subheader(":blue[INDE - Índice de Desenvolvimento Educacional]", divider="blue")
             st.markdown(
                 """

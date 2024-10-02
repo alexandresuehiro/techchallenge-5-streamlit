@@ -57,23 +57,31 @@ class SobreIndicadoresAvaliacao(TabInterface):
             with st.expander(f"INDE"):
                 chamarINDE = SobreINDE()
                 st.write(chamarINDE)
+                
             with st.expander(f"IAA"):
                 chamarIAA = SobreIAA()
+                st.write(chamarIAA)
+
             with st.expander(f"IAN"):
                 chamarIAN = SobreIAN()
                 st.write(chamarIAN)
+
             with st.expander(f"IDA"):
                 chamarIDA = SobreIDA()
                 st.write(chamarIDA)
+
             with st.expander(f"IEG"):
                 chamarIEG = SobreIEG()
                 st.write(chamarIEG)
+
             with st.expander(f"IPS"):
                 chamarIPS = SobreIPS()
                 st.write(chamarIPS)
+
             with st.expander(f"IPP"):
                 chamarIPP = SobreIPP()
                 st.write(chamarIPP)
+
             with st.expander(f"IPV"):
                 chamarIPV = SobreIPV()
                 st.write(chamarIPV)
