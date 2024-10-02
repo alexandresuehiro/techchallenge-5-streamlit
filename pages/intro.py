@@ -49,10 +49,8 @@ with st.container():
 #            "Educação em Embu-Guaçú",
             "Regressão Linear",
             "Regressão Logística",
-            "Decision Tree - Classification",
-            "Random Forest - Classification",
-            "Decision Tree - Regression",
-            "Random Forest - Regression"
+            "Decision Tree",
+            "Random Forest"
         ]
     )
 
