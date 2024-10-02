@@ -14,6 +14,7 @@ class expLogisticRegression(TabInterface):
             st.markdown(
                 """
                     Imagine um modelo que tenta prever se um e-mail é spam ou não. Ao invés de prever um valor numérico contínuo (como o preço de uma casa), aqui queremos prever uma categoria (spam ou não spam). A regressão logística é ideal para esse tipo de problema.
+                    
                     A regressão logística é um tipo de modelo estatístico utilizado para modelar a probabilidade de uma determinada classe ou evento ocorrer. Ao contrário da regressão linear, que prevê um valor numérico contínuo, a regressão logística prevê a probabilidade de um evento pertencer a uma determinada categoria.
 
                     Uma analogia:
@@ -25,6 +26,7 @@ class expLogisticRegression(TabInterface):
                 """  
 
                     Função logística: A regressão logística utiliza uma função matemática chamada função logística para transformar a saída linear em uma probabilidade entre 0 e 1.
+                    
                     Limiar: Um limiar é definido para classificar as observações. Por exemplo, se a probabilidade for maior que 0.5, a observação é classificada como positiva (spam, aprovado, etc.), caso contrário, é classificada como negativa.
 
                     Comparando com a Regressão Linear:

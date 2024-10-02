@@ -3,7 +3,7 @@ from datetime import date
 
 TITULO_PRINCIPAL = 'Tech Challenge 5 | FIAP'
 TITULO_INTRODUCAO = 'Introdução'
-TITULO_HISTORIA = 'Sobre a Passos Mágicos'
+TITULO_PASSOS = 'Sobre a Passos Mágicos'
 TITULO_ANALISE_EXPLORATORIA = 'Análise exploratória'
 TITULO_MODELO = 'Modelos de previsão'
 TITULO_REFLEXOES = 'Reflexões sobre as análises'
