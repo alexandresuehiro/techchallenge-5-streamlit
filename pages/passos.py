@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objs as go
-from utils.constantes import TITULO_HISTORIA, TITULO_PRINCIPAL
+from utils.constantes import TITULO_PASSOS, TITULO_PRINCIPAL
 from utils.layout import output_layout
 
 st.set_page_config(
-    page_title=f"{TITULO_HISTORIA} | {TITULO_PRINCIPAL}",
+    page_title=f"{TITULO_PASSOS} | {TITULO_PRINCIPAL}",
     layout="wide",
 )
 output_layout()
