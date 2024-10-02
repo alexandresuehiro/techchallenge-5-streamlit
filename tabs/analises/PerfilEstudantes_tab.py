@@ -32,7 +32,7 @@ class PerfilEstudantes(TabInterface):
                         Ainda analisando o tempo de início dos estudantes, temos o quadro abaixo:
                 """)
             st.dataframe(data2)
-            st.image('assets/imgs/01_qtde_veteranos.jpg')
+            st.image('assets/imgs/01_qtde_veteranos.png')
             st.markdown(
                 """
                         Houve um acréscimo considerável em 2022, com o ingresso de 398 estudantes na associação (aumento de 200% em relação a 2020).
@@ -58,13 +58,13 @@ class PerfilEstudantes(TabInterface):
                         Quanto ao perfil por fase, temos a seguinte composição:
                 """)
             st.dataframe(data4)
-            st.image('assets/imgs/02_qtde_estudantes_fase.jpg')
+            st.image('assets/imgs/02_qtde_estudantes_fase.png')
             st.markdown(
                 """
 Perfil por Pedra / INDE
                 """)
             st.dataframe(data5)
-            st.image('assets/imgs/quantidade_perfis_pedras_2020_2022.jpg')
+            st.image('assets/imgs/quantidade_perfis_pedras_2020_2022.png')
             st.markdown(
                 """ 
 A quantidade de estudantes nos perfis Ágata, Ametista e Topázio tiveram aumento maior que o Quartzo, ou seja, há maior porcentagem de estudantes com INDE de valores mais altos.
