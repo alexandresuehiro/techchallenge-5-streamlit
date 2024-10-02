@@ -9,7 +9,8 @@ class EducacaoBrasil(TabInterface):
 
     def render(self):
         with self.tab:
-            st.subheader(":blue[Panorama da Qualidade da Educação Brasileira: Um Desafio Contínuo]", divider="blue")
+            st.header(f":orange[Panorama da Qualidade da Educação Brasileira]")
+            st.subheader(":blue[Um Desafio Contínuo]", divider="blue")
             st.markdown(
                 """
                     A qualidade da educação brasileira é um tema complexo e multifacetado, com avanços e desafios que se entrelaçam. Embora tenhamos visto progressos em alguns indicadores, como a expansão do acesso ao ensino fundamental, ainda há muito a ser feito para garantir uma educação de qualidade para todos os brasileiros.
