@@ -10,13 +10,7 @@ class PerfilEstudantes(TabInterface):
     def render(self):
         with self.tab:
             st.subheader(":blue[Perfil dos Estudantes]", divider="blue")
-            tabela1 = [     
-                        ["Status / Ano - Exercício",	"2020",	"2021",	"2022"],
-                        ["Veterano",	"592",	"453",	"464"],
-                        ["Ingressante",	"133",	"235",	"398"],
-                        ["Total",	"725",	"688",	"862"]
-                    ]
-            data1 = pd.DataFrame(tabela1, header=0)
+            data1 = pd.read_csv("data/01_ingressantes_veteranos.csv", header=0)
             data1 = data1.transpose()
             st.markdown(
                 """
